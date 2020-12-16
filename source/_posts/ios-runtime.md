@@ -5,6 +5,7 @@ index_img: /img/ios/apple.jpg
 categories:
 - iOS
 tags:
+- iOS
 ---
 
 ### runtime 介绍

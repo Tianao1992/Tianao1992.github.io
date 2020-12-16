@@ -5,6 +5,7 @@ index_img: /img/ios/apple.jpg
 categories:
 - iOS
 tags:
+- iOS
 ---
 
 ### 汇总：内存分布、内存管理方法、数据结构、ARC&MRC 、weak 

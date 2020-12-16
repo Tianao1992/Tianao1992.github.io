@@ -5,6 +5,7 @@ index_img: /img/ios/apple.jpg
 categories:
 - iOS
 tags:
+- iOS
 ---
 ### 汇总：事件传递&响应链、图像显示原理、卡顿&掉帧、绘制原理&异步绘制
 

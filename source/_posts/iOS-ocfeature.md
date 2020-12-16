@@ -5,6 +5,7 @@ index_img: /img/ios/apple.jpg
 categories:
 - iOS
 tags:
+- iOS
 ---
 
 ### 汇总：分类 、关联对象、扩展、通知、kvo、kvc、属性关键字
