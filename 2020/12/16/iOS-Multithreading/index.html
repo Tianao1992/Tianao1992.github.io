@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Git - tablog</title>
+  <title>多线程 - tablog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Git">
+            <span class="h2" id="subtitle" title="多线程">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-16 09:50" pubdate>
-        2020年12月16日 上午
+      <time datetime="2020-12-16 15:46" pubdate>
+        2020年12月16日 下午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      753 字
+      587 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      6
        分钟
     </span>
   
@@ -224,86 +224,74 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Git</h1>
+            <h1 style="display: none">多线程</h1>
             
             <div class="markdown-body">
-              <h3 id="Git介绍"><a href="#Git介绍" class="headerlink" title="Git介绍"></a>Git介绍</h3><p>Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。<br>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。<br>Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持</p>
-<h3 id="git安装（mac）"><a href="#git安装（mac）" class="headerlink" title="git安装（mac）"></a>git安装（mac）</h3><p>Mac的终端上输入git检测是否安装git</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>t-scm.com/downloads<br><br></code></pre></td></tr></table></figure>
-<p>安装完成之后查看git版本</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">git <span class="hljs-comment">--version</span><br><br></code></pre></td></tr></table></figure>
-<p>创建一个全局用户名、全局邮箱作为配置信息</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs verilog">git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.name</span> <span class="hljs-string">&quot;your_name&quot;</span>  <br>git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.email</span> <span class="hljs-string">&quot;your_email@youremail.com&quot;</span><br><br></code></pre></td></tr></table></figure>
-<h3 id="git-本地仓库创建"><a href="#git-本地仓库创建" class="headerlink" title="git 本地仓库创建"></a>git 本地仓库创建</h3><p>打开终端</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-meta"><span class="hljs-meta-keyword">$cd</span> 某一个文件夹下</span><br><span class="hljs-symbol">$</span> git init<br><span class="hljs-symbol">$</span> git add .<br><span class="hljs-symbol">$</span> git commit -m <span class="hljs-string">&#x27;初始化项目版本&#x27;</span><br></code></pre></td></tr></table></figure>
-<h4 id="如果远端已有仓库"><a href="#如果远端已有仓库" class="headerlink" title="如果远端已有仓库"></a>如果远端已有仓库</h4><p>使用命令<br>$git remote add origin 添加远端仓库<br>$git push -u origin master 推送到远端仓库</p>
-<h3 id="工作区域"><a href="#工作区域" class="headerlink" title="工作区域"></a>工作区域</h3><p>git本地有三个工作区域：工作目录 (working) 、暂存区(stage)、本地仓（local rep,如果添加远端git仓（Rmmote）</p>
-<p><img src="/img/ittree/gitimg/gitwork.png" srcset="/img/loading.gif"></p>
-<h4 id="git-常用六个命令"><a href="#git-常用六个命令" class="headerlink" title="git 常用六个命令"></a>git 常用六个命令</h4><ul>
-<li><p>git add file: 本地文件添加到暂存区</p>
+              <h3 id="iOS系统为我们提供那些多线程技术"><a href="#iOS系统为我们提供那些多线程技术" class="headerlink" title="iOS系统为我们提供那些多线程技术"></a>iOS系统为我们提供那些多线程技术</h3><p>主要是这三种</p>
+<ul>
+<li><p>GCD</p>
 </li>
-<li><p>git commit: 提交到本地仓库</p>
+<li><p>NSOperation</p>
 </li>
-<li><p>git push: 推送到远端仓库</p>
-</li>
-<li><p>git pull: 拉取远端分支内容</p>
-</li>
-<li><p>git reset: 撤销提交内容</p>
-</li>
-<li><p>git checkout: 撤销缓存内容</p>
+<li><p>NSTread</p>
 </li>
 </ul>
-<h3 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h3><p>切出分支命令</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">git</span> checkout -<span class="hljs-keyword">b</span> dev<br><br></code></pre></td></tr></table></figure>
+<h3 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h3><h4 id="分为-同步-异步和-串行-并发"><a href="#分为-同步-异步和-串行-并发" class="headerlink" title="分为 同步/异步和 串行/并发"></a>分为 同步/异步和 串行/并发</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">dispatch_sync</span><span class="hljs-params">(serial_queue,^(任务)</span></span>)<br><span class="hljs-function"><span class="hljs-title">dispatch_async</span><span class="hljs-params">(serial_queue,^(任务)</span></span>)<br><span class="hljs-function"><span class="hljs-title">dispatch_sync</span><span class="hljs-params">(concurrent_queue,^(任务)</span></span>)<br><span class="hljs-function"><span class="hljs-title">dispatch_async</span><span class="hljs-params">(concurrent_queue,^(任务)</span></span>)<br><br></code></pre></td></tr></table></figure>
 
-<p>创建项目时，会针对不同环境创建三个常设分支</p>
+<p>同步并发队列</p>
+<p>下面代码输出啥</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">- （viewDidLoad）&#123;<br>    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;1&quot;</span>);<br>    <span class="hljs-built_in">dispatch_sync</span>(global_queue,^&#123;<br>        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;2&quot;</span>);<br><br>        <span class="hljs-built_in">dispatch_sync</span>(global_queue,^&#123;<br><br>            <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;3&quot;</span>);<br>         &#125;)；<br><br>        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;4&quot;</span>);<br>    &#125;)；<br>     <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;5&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>同步阻塞当前线程 所以打印1之后执行 block 打印2 由于是并发队列操作 所以执行打印3，如果是串行造成死锁</p>
+<p> 异步并发队列<br>下面代码输出啥</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">- （viewDidLoad）&#123;<br>    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;1&quot;</span>);<br>    <span class="hljs-built_in">dispatch_async</span>(global_queue,^&#123;<br>        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;2&quot;</span>);<br>        [<span class="hljs-keyword">self</span> performSelector：<span class="hljs-keyword">@selector</span>(printlog) withObject:<span class="hljs-literal">nil</span> afterDelay:<span class="hljs-number">0</span>]<br>        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;3&quot;</span>);<br>    &#125;)；<br>&#125;<br>- (<span class="hljs-keyword">void</span>)printlog&#123;<span class="hljs-built_in">NSlog</span>(<span class="hljs-string">@&quot;2&quot;</span>)&#125;<br><br></code></pre></td></tr></table></figure>
+<p>输出13，block内线程没有 runloop,所以 performSelector不会执行</p>
+<h4 id="怎样用GCd实现多读单写呢"><a href="#怎样用GCd实现多读单写呢" class="headerlink" title="怎样用GCd实现多读单写呢"></a>怎样用GCd实现多读单写呢</h4><p>dipatch_barrier_async()</p>
+<p><img src="/img/ios/multith/barrier.png" srcset="/img/loading.gif"></p>
+<h3 id="NSOperation"><a href="#NSOperation" class="headerlink" title="NSOperation"></a>NSOperation</h3><p>NSOperation 需要和 NSOperationqueue配合来实现多线程方案</p>
+<p>特点</p>
 <ul>
-<li><p>master: 主分支发布版本不轻易修改</p>
+<li><p>添加任务依赖</p>
 </li>
-<li><p>dev: 功能开发分支</p>
+<li><p>任务执行状态控制</p>
 </li>
-<li><p>test: 测试分支，提交给测试部门</p>
+<li><p>最大并发量</p>
 </li>
 </ul>
-<p><img src="/img/ittree/gitimg/gitliucheng.png" srcset="/img/loading.gif"></p>
-<h3 id="git-撤销回滚"><a href="#git-撤销回滚" class="headerlink" title="git 撤销回滚"></a>git 撤销回滚</h3><h4 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h4><p><strong>文件被修改了，但未执行git add操作</strong></p>
-<ul>
-<li><p> git checkout – fliename  某个文件名</p>
+<h4 id="任务执行状态"><a href="#任务执行状态" class="headerlink" title="任务执行状态"></a>任务执行状态</h4><ul>
+<li><p>isReady</p>
 </li>
-<li><p>  git checkout – .   将多个文件一次性撤销可以用</p>
+<li><p>isExecuting</p>
 </li>
-</ul>
-<p><strong>已经添加到暂存区域，从暂存区撤销</strong></p>
-<ul>
-<li><p>git reset HEAD filename 撤销某个</p>
+<li><p>isFinished</p>
 </li>
-<li><p>git reset HEAD 多个撤销</p>
+<li><p>isCancelled</p>
 </li>
 </ul>
-<p><strong>commit之后，想要撤销到某个版本</strong></p>
-<ol>
-<li><p>git log查看提交记录</p>
+<p>状态控制</p>
+<ul>
+<li><p>如果只是重写了main方法，底层控制变更执行完成状态，以及任务退出</p>
 </li>
-<li><p>git  reset –hard  commit_id</p>
+<li><p>如果重写start方法，自行控制任务状态</p>
 </li>
-</ol>
-<h4 id="回滚"><a href="#回滚" class="headerlink" title="回滚"></a>回滚</h4><p><strong>回滚一次错误的合并</strong></p>
-<ol>
-<li><p>git branch backup 备份一个</p>
+</ul>
+<p>系统是怎样移除一个isfinished=Yes的NSOperation？</p>
+<p>通过kvo</p>
+<h3 id="NSTread"><a href="#NSTread" class="headerlink" title="NSTread"></a>NSTread</h3><p>启动流程</p>
+<p><img src="/img/ios/multith/barrier.png" srcset="/img/loading.gif"></p>
+<p>一般我们用NSTread和runloop 结合来是一个常驻线程</p>
+<h3 id="dispatch-semaphore-t"><a href="#dispatch-semaphore-t" class="headerlink" title="dispatch_semaphore_t"></a>dispatch_semaphore_t</h3><p>信号量：就是一种可用来控制访问资源的数量的标识，设定了一个信号量，在线程访问之前，加上信号量的处理，则可告知系统按照我们指定的信号量数量来执行多个线程。<br>异步线程下同步问题</p>
+<p>//创建信号量，参数：信号量的初值，如果小于0则会返回NULL<br>dispatch_semaphore_create（信号量值）</p>
+<p>//等待降低信号量<br>dispatch_semaphore_wait（信号量，等待时间）</p>
+<p>//提高信号量<br>dispatch_semaphore_signal(信号量)</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><p>一般我们用CGD来实现实现一些 简单线程同步 子线程放的分派，包括多读单写这些场景的一些问题的解决，</p>
 </li>
-<li><p>git push origin backup: backup 推送到远端</p>
+<li><p>对于NSOpeation 由于它 任务依赖，任务状态控制，可以设置最大并发量的一些的特点，像afn sdwebimg 这些框架都会使用它</p>
 </li>
-<li><p>git reset –hard xxxxx 本地仓库彻底回退到xxxxx版本，xxxxx版本之后的commit信息将丢失</p>
+<li><p>对于NSTread往往我们用它来实现一个常驻线程</p>
 </li>
-<li><p>git push origin :master 删除对应远端分支</p>
-</li>
-<li><p>git push origin master 重新创建远端分支</p>
-</li>
-</ol>
-<p>git revert<br><strong>是回滚某个 commit ，不是回滚“到”某个</strong></p>
-<p>如果错误的修改已经不是最新的commit，回退某次提交的上一步，用git revert。并且会生成一个新的提交来撤销某次提交，此次提交之前的commit都会被保留。</p>
-<p>比如：a操作添加了“haha”，commit了a，b操作添加了“xixi”，commit b。现在想回滚到只添加了“haha”，需要的是删除“xixi”，也就是逆向操作b，所以应该<code>git revert b的commit_id</code>。 <code>git revert</code> 应该翻译成“反转、逆转”比较好理解，而不是回退</p>
-<p>git reset<br>删除commit 之前提交的内容 </p>
+</ul>
 
             </div>
             <hr>
@@ -313,7 +301,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/ItTree/">ItTree</a>
+                      <a class="hover-with-bg" href="/categories/iOS/">iOS</a>
                     
                   </div>
                 
@@ -321,7 +309,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Git/">Git</a>
+                      <a class="hover-with-bg" href="/tags/iOS/">iOS</a>
                     
                   </div>
                 
@@ -332,9 +320,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/16/iOS-Multithreading/">
+                      <a href="/2020/12/17/iOS-Runloop/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">多线程</span>
+                        <span class="hidden-mobile">Runloop</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -342,8 +330,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/15/network/">
-                        <span class="hidden-mobile">网络相关</span>
+                      <a href="/2020/12/16/Git/">
+                        <span class="hidden-mobile">Git</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
