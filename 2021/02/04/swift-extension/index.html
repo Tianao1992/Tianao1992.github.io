@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>swift 枚举 - tablog</title>
+  <title>扩展 - tablog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="swift 枚举">
+            <span class="h2" id="subtitle" title="扩展">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-02 15:26" pubdate>
-        2021年2月2日 下午
+      <time datetime="2021-02-04 16:21" pubdate>
+        2021年2月4日 下午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      316 字
+      292 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      4
        分钟
     </span>
   
@@ -224,27 +224,32 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">swift 枚举</h1>
+            <h1 style="display: none">扩展</h1>
             
             <div class="markdown-body">
-              <h3 id="枚举基本用法"><a href="#枚举基本用法" class="headerlink" title="枚举基本用法"></a>枚举基本用法</h3><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sqf">enum <span class="hljs-built_in">Direction</span> &#123;<br>    <span class="hljs-keyword">case</span> north,south,<span class="hljs-literal">east</span>,<span class="hljs-literal">west</span><br>&#125;<br><br>var dir = <span class="hljs-built_in">Direction</span>.<span class="hljs-literal">west</span><br>dir = .north<br><br><span class="hljs-keyword">switch</span> dir &#123;<br><span class="hljs-keyword">case</span> .north:<br>    print(<span class="hljs-string">&quot;north&quot;</span>)<br><span class="hljs-keyword">case</span> .<span class="hljs-literal">east</span>:<br>    print(<span class="hljs-string">&quot;east&quot;</span>)<br><span class="hljs-keyword">case</span> .south:<br>    print(<span class="hljs-string">&quot;south&quot;</span>)<br><span class="hljs-keyword">case</span> .<span class="hljs-literal">west</span>:<br>    print(<span class="hljs-string">&quot;west&quot;</span>)<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<h3 id="关联值"><a href="#关联值" class="headerlink" title="关联值"></a>关联值</h3><p>将枚举成员值跟其他类型值关联储存在一起</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs autoit"><span class="hljs-keyword">enum</span> Password &#123;<br>   <span class="hljs-keyword">case</span> <span class="hljs-built_in">number</span>(<span class="hljs-built_in">Int</span> ,<span class="hljs-built_in">Int</span>,<span class="hljs-built_in">Int</span>, <span class="hljs-built_in">Int</span>)<br>   <span class="hljs-keyword">case</span> getsture(<span class="hljs-built_in">String</span>)<br>&#125;<br>var pwd = Password.<span class="hljs-built_in">number</span>(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)<br>pwd = .getsture(<span class="hljs-string">&quot;1345&quot;</span>)<br><br><span class="hljs-keyword">switch</span> pwd &#123;<br><span class="hljs-keyword">case</span> let .<span class="hljs-built_in">number</span>(a1 , a2, a3, a4):<br>    print(a1,a2,a3,a4)<br><span class="hljs-keyword">case</span> let .getsture(str):<br>    print(str)<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<h3 id="原始值，隐式原始值"><a href="#原始值，隐式原始值" class="headerlink" title="原始值，隐式原始值"></a>原始值，隐式原始值</h3><ul>
-<li><p>枚举成员可以使用相同类型的默认值预先对应这个默认值，叫做原始值</p>
+              <h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>swift中扩展类似于oc 中分类<br><strong>扩展可以为枚举、类、结构体、协议增添新功能</strong><br>可以添加，方法，计算属性、下标、便捷初始化器、协议等</p>
+<p><strong>扩展不能做的事</strong></p>
+<ul>
+<li><p>不能覆盖原有功能</p>
 </li>
-<li><p>原始值不占用枚举变量内存</p>
+<li><p>不能添加存储属性，不能向已有的属性添加属性观察器</p>
 </li>
-<li><p>如果枚举的原始值类型是 Int,String会自动分配原始值</p>
+<li><p>不能添加父类</p>
+</li>
+<li><p>不能添加指定初始化器与反初始化器</p>
 </li>
 </ul>
-<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs sqf">enum <span class="hljs-built_in">Direction</span>: String &#123;<br>    <span class="hljs-keyword">case</span> north,south,<span class="hljs-literal">east</span>,<span class="hljs-literal">west</span><br>&#125;<br><br>print(<span class="hljs-built_in">Direction</span>.north.rawValue)<span class="hljs-comment">//&quot;north&quot;</span><br>print(<span class="hljs-built_in">Direction</span>.<span class="hljs-literal">west</span>.rawValue)<span class="hljs-comment">//&quot;west&quot;</span><br><br><br><br>enum <span class="hljs-built_in">Direction</span>: Int &#123;<br>    <span class="hljs-keyword">case</span> north,south,<span class="hljs-literal">east</span>,<span class="hljs-literal">west</span><br>&#125;<br>print(<span class="hljs-built_in">Direction</span>.north.rawValue)<span class="hljs-comment">// 0</span><br>print(<span class="hljs-built_in">Direction</span>.<span class="hljs-literal">west</span>.rawValue)<span class="hljs-comment">// 3</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Array</span> </span>&#123;<br>    <span class="hljs-keyword">subscript</span>(nullable idx: <span class="hljs-type">Int</span>) -&gt; <span class="hljs-type">Element?</span> &#123;<br>        <span class="hljs-keyword">if</span> (startIndex..&lt;endIndex).<span class="hljs-built_in">contains</span>(idx) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>[idx]<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span><br>    &#125;<br>    <br>&#125;<br><br><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>]<br><br><span class="hljs-keyword">var</span> a = arr[nullable: <span class="hljs-number">2</span>]! <br><span class="hljs-built_in">print</span>(a)<br></code></pre></td></tr></table></figure>
 
-<h3 id="递归枚举"><a href="#递归枚举" class="headerlink" title="递归枚举"></a>递归枚举</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs crystal">indirect <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Airpext</span> &#123;</span><br>    <span class="hljs-keyword">case</span> number(Int)<br>    <span class="hljs-keyword">case</span> sum(Airpext,Airpext)<br>    <span class="hljs-keyword">case</span> diference(Airpext,Airpext)<br>&#125;<br><br><br>let five = Airpext.number(<span class="hljs-number">5</span>)<br>let four = Airpext.number(<span class="hljs-number">4</span>)<br>let sum = Airpext.sum(five, four)<br></code></pre></td></tr></table></figure>
+<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><p>扩展可以给协议提供默认实现，也可以间接提供可选协议</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">TestProtocol</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">TestProtocol</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;test&quot;</span>)<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;test1&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>如果一个类已经实现了协议所有要求，但还没有声明遵守它，可以通过扩展来实现</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">TestProtocol</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">testClass</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;test&quot;</span>)<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">testClass</span>: <span class="hljs-title">TestProtocol</span></span>&#123;&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="关联值内存"><a href="#关联值内存" class="headerlink" title="关联值内存"></a>关联值内存</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs crystal"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Password</span> &#123;</span><br>   <span class="hljs-keyword">case</span> number(Int ,Int,Int, Int)<br>   <span class="hljs-keyword">case</span> other<br>&#125;<br><br>MemoryLayout&lt;Password&gt;.stride /<span class="hljs-regexp">/ 40 分配占用空间大小</span><br><span class="hljs-regexp">MemoryLayout&lt;Password&gt;.size/</span><span class="hljs-regexp">/ 33/</span>实际占用<br>MemoryLayout&lt;Password&gt;.alignment/<span class="hljs-regexp">/ 8/</span><span class="hljs-regexp">/对齐</span><br><span class="hljs-regexp"></span><br></code></pre></td></tr></table></figure>
+<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Stack</span>&lt;<span class="hljs-title">E</span>&gt; </span>&#123;<br>    <span class="hljs-keyword">var</span> elements = [<span class="hljs-type">E</span>]()<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">push</span><span class="hljs-params">(<span class="hljs-keyword">_</span> element: E)</span></span> &#123;<br>        elements.append(element)<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Stack</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span>  <span class="hljs-title">top</span><span class="hljs-params">()</span></span> -&gt;  <span class="hljs-type">E</span>&#123;<br>        elements.last!<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
 
             </div>
             <hr>
@@ -273,18 +278,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/02/swift-options/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">可选项</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/02/swift-func/">
-                        <span class="hidden-mobile">swift 函数</span>
+                      <a href="/2021/02/04/swift-operator/">
+                        <span class="hidden-mobile">高级运算符</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

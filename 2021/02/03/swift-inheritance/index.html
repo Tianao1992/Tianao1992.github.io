@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>可选项 - tablog</title>
+  <title>继承 - tablog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="可选项">
+            <span class="h2" id="subtitle" title="继承">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-02 16:02" pubdate>
-        2021年2月2日 下午
+      <time datetime="2021-02-03 16:49" pubdate>
+        2021年2月3日 下午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      549 字
+      341 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      4
        分钟
     </span>
   
@@ -224,62 +224,42 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">可选项</h1>
+            <h1 style="display: none">继承</h1>
             
             <div class="markdown-body">
-              <h3 id="可选项"><a href="#可选项" class="headerlink" title="可选项"></a>可选项</h3><ul>
-<li><p>可选项，一般也叫可选类型，它允许将值设为nil</p>
-</li>
-<li><p>在类型后面加？来定义可选项</p>
-</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">var</span> name: <span class="hljs-type">String?</span> = <span class="hljs-string">&quot;zhangsan&quot;</span><br>name = <span class="hljs-literal">nil</span><br><br><span class="hljs-keyword">var</span> age: <span class="hljs-type">Int?</span> <span class="hljs-comment">// 默认为nil</span><br>age = <span class="hljs-number">20</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="强制解包"><a href="#强制解包" class="headerlink" title="强制解包"></a>强制解包</h3><p>可选项是对其他类型一层包装，可以看做一个盒子</p>
-<ul>
-<li><p>如果是nil,就是空盒子</p>
-</li>
-<li><p>非nil ,那么盒子里是被包装的类型数据</p>
-</li>
-</ul>
-<p>如果取出数据采用强制解包，值如果是nil的情况下，会产生运行是错误程序崩溃</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">var</span> age: <span class="hljs-built_in">Int</span>? <span class="hljs-comment">// 默认为nil</span><br>age!<br></code></pre></td></tr></table></figure>
-
-<h3 id="可选项绑定"><a href="#可选项绑定" class="headerlink" title="可选项绑定"></a>可选项绑定</h3><p><strong>可以使用可选项绑定来判断可选项有没有值</strong></p>
-<p>把值赋给一个临时变量或者常量，并返回true或false </p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">var</span> age: <span class="hljs-type">Int?</span> <span class="hljs-comment">// 默认为nil</span><br><br><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> age1 = age &#123;<br>    <span class="hljs-built_in">print</span>(age1)<br>&#125;<span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;值为nil 解包失败&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="where-循环中使用可选项绑定"><a href="#where-循环中使用可选项绑定" class="headerlink" title="where 循环中使用可选项绑定"></a>where 循环中使用可选项绑定</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-comment">//遇到非数字停止</span><br><span class="hljs-built_in">var</span> strs = [<span class="hljs-string">&quot;20&quot;</span>,<span class="hljs-string">&quot;9&quot;</span>,<span class="hljs-string">&quot;test2&quot;</span>,<span class="hljs-string">&quot;30&quot;</span>,<span class="hljs-string">&quot;10&quot;</span>]<br><br><span class="hljs-built_in">var</span> <span class="hljs-keyword">index</span> = <span class="hljs-number">0</span><br><span class="hljs-built_in">var</span> <span class="hljs-keyword">sum</span> = <span class="hljs-number">0</span><br><span class="hljs-keyword">while</span> let num = Int(strs[<span class="hljs-keyword">index</span>]), num &gt; <span class="hljs-number">0</span>&#123;<br>    <span class="hljs-keyword">sum</span> += num<br>    <span class="hljs-keyword">index</span> += <span class="hljs-number">1</span><br>&#125;<br><span class="hljs-keyword">print</span>(<span class="hljs-keyword">sum</span>)<span class="hljs-comment">// 29</span><br><br></code></pre></td></tr></table></figure>
-
-<h3 id="空合并运算符"><a href="#空合并运算符" class="headerlink" title="空合并运算符"></a>空合并运算符</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> ?? &lt;T&gt;<span class="hljs-params">(<span class="hljs-keyword">optional</span>: T?, defaultValue: @autoclosure <span class="hljs-params">()</span></span></span> <span class="hljs-keyword">throws</span> -&gt; <span class="hljs-type">T</span>) <span class="hljs-keyword">rethrows</span> -&gt; <span class="hljs-type">T</span><br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><p>a 是可选项</p>
-</li>
-<li><p>b 是可选项或者不是</p>
-</li>
-<li><p>a,b存储类型必须相同</p>
-</li>
-</ul>
-<ol>
-<li>如果 a不为nil,返回a</li>
-<li>如果 a为nil ,返回b</li>
-<li>如果b不是选项，a自动解包</li>
+              <h3 id="继承介绍"><a href="#继承介绍" class="headerlink" title="继承介绍"></a>继承介绍</h3><ol>
+<li>值类型（枚举、结构体）不支持继承，只有类支持继承 </li>
+<li>没有父类的类称为基类</li>
+<li>子类可以重写父类的属性、方法、下标,但必须加override**</li>
 </ol>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs excel"><span class="hljs-built_in">var</span> <span class="hljs-symbol">a:</span> <span class="hljs-built_in">Int</span>? = <span class="hljs-number">10</span><br><span class="hljs-built_in">var</span> <span class="hljs-symbol">b:</span> <span class="hljs-built_in">Int</span> = <span class="hljs-number">20</span><br><br>a ?? b<br></code></pre></td></tr></table></figure>
+<h4 id="重写类型方法、下标"><a href="#重写类型方法、下标" class="headerlink" title="重写类型方法、下标"></a>重写类型方法、下标</h4><ul>
+<li><p>被class修饰的类型方法、下标可以被重写</p>
+</li>
+<li><p>被static修饰的类型方法、下标不可以被重写</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>&#123;<br><br>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">func</span> <span class="hljs-title">speak</span></span>() &#123;<br>        print(<span class="hljs-string">&quot;animal speak&quot;</span>)<br>    &#125;<br>    <br>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">subscript</span> </span>(index: <span class="hljs-built_in">Int</span>)  -&gt; <span class="hljs-built_in">Int</span>&#123;<br>        <span class="hljs-keyword">return</span> index<br>    &#125;<br>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">func</span> <span class="hljs-title">run</span></span>() &#123;<br>        <br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span>: <span class="hljs-type">Animal &#123;</span></span><br>    <span class="hljs-keyword">override</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">func</span> <span class="hljs-title">speak</span></span>() &#123;<br>        <span class="hljs-keyword">super</span>.speak()<br>        print(<span class="hljs-string">&quot;dog speak&quot;</span>)<br>    &#125;<br>    <br>    <span class="hljs-keyword">override</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">subscript</span></span>(index: <span class="hljs-built_in">Int</span>) -&gt; <span class="hljs-built_in">Int</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>[index] + <span class="hljs-number">1</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="gurad语句"><a href="#gurad语句" class="headerlink" title="gurad语句"></a>gurad语句</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">guard</span> 条件 <span class="hljs-keyword">else</span> &#123;<br>   退出<br>&#125;<br></code></pre></td></tr></table></figure>
-<ul>
-<li><p>gurad 条件 为false 执行大括号内</p>
-</li>
-<li><p>gurad 条件 为true 跳过gurad语句</p>
-</li>
-<li><p>gurad 特别适合提前退出</p>
 </li>
 </ul>
-<p><strong>guard和if else对比</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">login</span> <span class="hljs-params">(<span class="hljs-keyword">_</span> info:[String: String])</span></span> &#123;<br>    <span class="hljs-keyword">let</span> userName: <span class="hljs-type">String</span><br><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> tmp = info[<span class="hljs-string">&quot;userName&quot;</span>] &#123;<br>        userName = tmp<br>    &#125;<span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;请输入用户名&quot;</span>)<br>        <span class="hljs-keyword">return</span><br>    &#125;<br><br>    <span class="hljs-keyword">let</span> phone: <span class="hljs-type">String</span><br><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> tmp1 = info[<span class="hljs-string">&quot;phone&quot;</span>] &#123;<br>        phone = tmp1<br>    &#125;<span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;请输入手机号&quot;</span>)<br>        <span class="hljs-keyword">return</span><br>    &#125;<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;用户名\(userName)&quot;</span>,<span class="hljs-string">&quot;手机号\(phone )&quot;</span>)<br>&#125;<br><br><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">login</span> <span class="hljs-params">(<span class="hljs-keyword">_</span> info:[String: String])</span></span> &#123;<br>    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> userName = info[<span class="hljs-string">&quot;userName&quot;</span>] <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;请输入用户名&quot;</span>)<br>        <span class="hljs-keyword">return</span><br>    &#125;<br><br>    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> phone = info[<span class="hljs-string">&quot;phone&quot;</span>] <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;请输入手机号&quot;</span>)<br>        <span class="hljs-keyword">return</span><br>    &#125;<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;用户名\(userName)&quot;</span>,<span class="hljs-string">&quot;手机号\(phone )&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
-<p><strong>gurad可选项绑定变量或常量也能在外层作用域使用</strong></p>
+<h4 id="重写属性"><a href="#重写属性" class="headerlink" title="重写属性"></a>重写属性</h4><ul>
+<li><p>子类可以将父类的属性（存储、计算）重写为计算属性</p>
+</li>
+<li><p>子类不可以将父类的属性，重写为存储属性</p>
+</li>
+<li><p>只能重写var属性</p>
+</li>
+<li><p>重写时，属性名、类型要相同</p>
+</li>
+<li><p>子类重写后的属性权限不能小于父类</p>
+</li>
+</ul>
+<h4 id="属性观察器"><a href="#属性观察器" class="headerlink" title="属性观察器"></a>属性观察器</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span></span>&#123;<br>    <span class="hljs-keyword">var</span> radus: <span class="hljs-type">Int</span> = <span class="hljs-number">1</span> &#123;<br>        <span class="hljs-keyword">willSet</span>&#123;<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Circle willSet&quot;</span>,newValue)<br>        &#125;<br>        <span class="hljs-keyword">didSet</span> &#123;<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Circle didSet&quot;</span>,oldValue,radus)<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span>  <span class="hljs-title">subCircle</span> : <span class="hljs-title">Circle</span> </span>&#123;<br>   <span class="hljs-keyword">override</span> <span class="hljs-keyword">var</span> radus: <span class="hljs-type">Int</span>  &#123;<br>        <span class="hljs-keyword">willSet</span>&#123;<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;subCircle willSet&quot;</span>,newValue)<br>        &#125;<br>        <span class="hljs-keyword">didSet</span> &#123;<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;subCircle didSet&quot;</span>,oldValue,radus)<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">var</span> circle = subCircle()<br>circle.radus = <span class="hljs-number">10</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">打印</span><br><span class="hljs-comment">subCircle willSet 10</span><br><span class="hljs-comment">Circle willSet 10</span><br><span class="hljs-comment">Circle didSet 1 10</span><br><span class="hljs-comment">subCircle didSet 1 10</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="final"><a href="#final" class="headerlink" title="final"></a>final</h4><ul>
+<li><p>被final修饰的禁止重写 属性、下标、方法</p>
+</li>
+<li><p>被final修饰的类禁止继承</p>
+</li>
+</ul>
 
             </div>
             <hr>
@@ -308,9 +288,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/02/swift-structclass/">
+                      <a href="/2021/02/04/swift-init/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">结构体和类</span>
+                        <span class="hidden-mobile">初始化器</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -318,8 +298,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/02/swift-enum/">
-                        <span class="hidden-mobile">swift 枚举</span>
+                      <a href="/2021/02/03/swift-method/">
+                        <span class="hidden-mobile">方法、下标</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -179,32 +179,26 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/02/swift-structclass/" target="_self">
-          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="结构体和类">
+        <a href="/2020/12/12/iOS-Block/" target="_self">
+          <img src="/img/ios/apple.jpg" srcset="/img/loading.gif" alt="iOS_Block">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/02/swift-structclass/">结构体和类</a>
+        <a href="/2020/12/12/iOS-Block/">iOS_Block</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/02/swift-structclass/">
+        <a href="/2020/12/12/iOS-Block/">
           
           
             
           
-          结构体在swift 标准库中，绝大多数的公开类型都是结构体，枚举和类只占一小部分
-
-比如 Bool,Int,String,Arrray,Dictionary等常见类型都是结构体
-
-所有结构体都有编译器自动生成的初始器(initialer,初始化器，构造器，构造方法)
-
-
-初始化器宗旨是：保证每个成员都有值
-123456789struct Point &#123;    var x: Int   
+          Block 介绍block 是将函数及其执行上下文分装起来的对象
+例如
+123456789101112131415161718192021222324252627282930313233343536373839404142&#123;    int mutltiplier = 3;    int(^Block)(int) = ^int(int num)&#123;        return nu
         </a>
       </p>
 
@@ -212,8 +206,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-02 16:44" pubdate>
-              2021-02-02
+            <time datetime="2020-12-12 07:32" pubdate>
+              2020-12-12
             </time>
           </div>
         
@@ -221,7 +215,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Swift/">Swift</a>
+              <a href="/categories/iOS/">iOS</a>
             
           </div>
         
@@ -229,7 +223,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/ios/">ios</a>
+              <a href="/tags/iOS/">iOS</a>
             
           </div>
         
@@ -241,39 +235,36 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/02/swift-options/" target="_self">
-          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="可选项">
+        <a href="/2020/12/11/ios-runtime/" target="_self">
+          <img src="/img/ios/apple.jpg" srcset="/img/loading.gif" alt="ios_Runtime">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/02/swift-options/">可选项</a>
+        <a href="/2020/12/11/ios-runtime/">ios_Runtime</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/02/swift-options/">
+        <a href="/2020/12/11/ios-runtime/">
           
           
             
           
-          可选项
-可选项，一般也叫可选类型，它允许将值设为nil
+          runtime 介绍Objective-C 扩展了 C 语言，并加入了面向对象特性和 Smalltalk 式的消息传递机制。而这个扩展的核心是一个用 C 和 编译语言 写的 Runtime 库。它是 Objective-C 面向对象和动态机制的基石
+runtime 基础数据结构
 
-在类型后面加？来定义可选项
+objc_object
 
+objc_class
 
-12345var name: String? = &quot;zhangsan&quot;name = nilvar age: Int? // 默认为nilage = 20
+isa 指针
 
-强制解包可选项是对其他类型一层包装，可以看做一个盒子
-
-如果是nil,就是空盒子
-
-非nil ,那么盒子里是被包装的类型数据
+method_t
 
 
-如果
+objc_object 数据结
         </a>
       </p>
 
@@ -281,8 +272,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-02 16:02" pubdate>
-              2021-02-02
+            <time datetime="2020-12-11 16:35" pubdate>
+              2020-12-11
             </time>
           </div>
         
@@ -290,7 +281,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Swift/">Swift</a>
+              <a href="/categories/iOS/">iOS</a>
             
           </div>
         
@@ -298,7 +289,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/ios/">ios</a>
+              <a href="/tags/iOS/">iOS</a>
             
           </div>
         
@@ -310,24 +301,44 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/02/swift-enum/" target="_self">
-          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="swift 枚举">
+        <a href="/2020/12/11/iOS-ocfeature/" target="_self">
+          <img src="/img/ios/apple.jpg" srcset="/img/loading.gif" alt="oc语言特性">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/02/swift-enum/">swift 枚举</a>
+        <a href="/2020/12/11/iOS-ocfeature/">oc语言特性</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/02/swift-enum/">
+        <a href="/2020/12/11/iOS-ocfeature/">
           
           
             
           
-          枚举基本用法123456789101112131415161718enum Direction &#123;    case north,south,east,west&#125;var dir = Direction.westdir = .northswitch dir &#123;case .north:    print(&quot;north&quot;)case .east:    pr
+          汇总：分类 、关联对象、扩展、通知、kvo、kvc、属性关键字
+分类分类都做了哪些事情
+声明私有方法
+分解体积庞大的类文件
+把Framework的私有方法公开
+
+分类的特点
+运行时决议
+可以为系统类添加分类
+
+分类都可以添加哪些内容
+实例方法
+类方法
+协议
+属性 （只是声明了get 和 set 方法 ，并没有添加实例变量）
+
+分类的数据结构
+
+分类调用栈
+
+image: 表示的是镜像read_im
         </a>
       </p>
 
@@ -335,8 +346,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-02 15:26" pubdate>
-              2021-02-02
+            <time datetime="2020-12-11 11:19" pubdate>
+              2020-12-11
             </time>
           </div>
         
@@ -344,7 +355,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Swift/">Swift</a>
+              <a href="/categories/iOS/">iOS</a>
             
           </div>
         
@@ -352,7 +363,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/ios/">ios</a>
+              <a href="/tags/iOS/">iOS</a>
             
           </div>
         
@@ -364,25 +375,31 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/02/swift-func/" target="_self">
-          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="swift 函数">
+        <a href="/2020/12/10/iOS-UI/" target="_self">
+          <img src="/img/ios/apple.jpg" srcset="/img/loading.gif" alt="iOS_UI视图汇总">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/02/swift-func/">swift 函数</a>
+        <a href="/2020/12/10/iOS-UI/">iOS_UI视图汇总</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/02/swift-func/">
+        <a href="/2020/12/10/iOS-UI/">
           
           
             
           
-          函数的定义形参是let类型， 也只是是let
-1234567891011121314func pi() -&gt; Double &#123;    return 3.14&#125;func sum(v1: Int ,v2: Int) -&gt; Int &#123;     v1 + v2&#125;sum(v1: 10, v2: 20) // 30//无返回值 无参func sayHello
+          汇总：事件传递&amp;响应链、图像显示原理、卡顿&amp;掉帧、绘制原理&amp;异步绘制
+UIView 和 CALayer 关系是怎么样的？
+UIView 为其提供内容，以及负责触摸等事件，参与响应链
+CALayer 负责显示内容contens
+
+UIView和CAlayer从系统设计上符合 单一事件原则
+
+系统UI事件传递及视图响应事件传递当一个用户事件产生的时候，UIKit 会创建一个事件
         </a>
       </p>
 
@@ -390,8 +407,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-02 14:34" pubdate>
-              2021-02-02
+            <time datetime="2020-12-10 10:47" pubdate>
+              2020-12-10
             </time>
           </div>
         
@@ -399,7 +416,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Swift/">Swift</a>
+              <a href="/categories/iOS/">iOS</a>
             
           </div>
         
@@ -407,7 +424,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/ios/">ios</a>
+              <a href="/tags/iOS/">iOS</a>
             
           </div>
         
@@ -419,25 +436,30 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/02/swift-ProcessControl/" target="_self">
-          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="流程控制">
+        <a href="/2020/12/09/iOS-isa/" target="_self">
+          <img src="/img/ios/apple.jpg" srcset="/img/loading.gif" alt="iOS  非指针型ISA(NONPOINTER_ISA)">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/02/swift-ProcessControl/">流程控制</a>
+        <a href="/2020/12/09/iOS-isa/">iOS  非指针型ISA(NONPOINTER_ISA)</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/02/swift-ProcessControl/">
+        <a href="/2020/12/09/iOS-isa/">
           
           
             
           
-          if elseswift 中去掉了非0即真的概念 if 条件后面只能是bool类型下面代码编译报错
-1234567let age = 1if age &#123;     print(&quot;123&quot;)&#125;//Type &#x27;Int&#x27; cannot be used as a boolean; test for &#x27;!= 0&#x27; instead
+          什么是NONPonter_isa？ 在iOS arm64架构下，isa指针在内存中占64位/bit,但是实际上并不会使用所有的地址空间,为了提高内存的利用率，在剩余的bit 存储了关于内存管理的一些相关内容，所以说这个叫非指针型的isa
+逐一分析这64个bit都存储那些内容
+0-15 位内存地址
+
+
+
+indexed:0 代表的是纯isa 指针代表类对象的内存地址 1代表这个isa存储的不仅是类对
         </a>
       </p>
 
@@ -445,8 +467,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-02 14:03" pubdate>
-              2021-02-02
+            <time datetime="2020-12-09 15:56" pubdate>
+              2020-12-09
             </time>
           </div>
         
@@ -454,7 +476,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Swift/">Swift</a>
+              <a href="/categories/iOS/">iOS</a>
             
           </div>
         
@@ -462,310 +484,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/ios/">ios</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/02/swift-Basicgrammar/" target="_self">
-          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="swift 基础语法">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/02/swift-Basicgrammar/">swift 基础语法</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/02/swift-Basicgrammar/">
-          
-          
-            
-          
-          常量
-只能赋值一次
-
-它的值不要求在编译时期决定，但在使用之前只能赋值一次
-
-常量、变量在未初始化之前都不能使用
-
-
-12345let age = 10let age2: Int = 20age2 = 2 //Cannot assign to value: &#x27;age2&#x27; is a &#x27;let&#x27; constant
-
-标识符
-标识符（常量名、变量名、函数名）几乎可
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-02 13:34" pubdate>
-              2021-02-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Swift/">Swift</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/ios/">ios</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/01/31/Sort/" target="_self">
-          <img src="/img/bg/tree.jpg" srcset="/img/loading.gif" alt="常见排序">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/31/Sort/">常见排序</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/31/Sort/">
-          
-          
-            
-          
-          冒泡排序介绍 冒泡排序是一种简单直观的排序算法，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢”浮”到数列的顶端
-步骤
-比较相邻的元素。如果第一个比第二个大，就交换他们两个。
-
-对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-31 17:51" pubdate>
-              2021-01-31
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/ItTree/">ItTree</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/basic/">basic</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/01/07/this/" target="_self">
-          <img src="/img/h5/fronted.jpg" srcset="/img/loading.gif" alt="this 指向问题">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/07/this/">this 指向问题</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/07/this/">
-          
-          
-            
-          
-          JavaScript this 关键字面向对象语言中 this 表示当前对象的一个引用。但在 JavaScript 中 this 不是固定不变的，它会随着执行境的改变而改变
-哪个对象调用函数，函数里面的this指向哪个对象
-可以分为这5种情况讨论
-
-作为普通函数被调用
-作为对象属性被调用
-作为构造函数
-call和apply的应用
-箭头函数
-
-普通函数被调用1234   function test(
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-07 14:12" pubdate>
-              2021-01-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/H5/">H5</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/01/07/es6/" target="_self">
-          <img src="/img/h5/fronted.jpg" srcset="/img/loading.gif" alt="ES6特性">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/07/es6/">ES6特性</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/07/es6/">
-          
-          
-            
-          
-          块级作用域​ES6之前没有块级作用域，ES5的var没有块级作用域的概念，只有function有作用域的概念，ES6的let、const引入了块级作用域。​ES5之前if和for都没有作用域，所以很多时候需要使用function的作用域，比如闭包。
-什么是变量作用域​变量在什么范围内可用，类似Java的全局变量和局部变量的概念，全局变量，全局都可用，局部变量只在范围内可用。ES5之前的var是没有
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-07 13:53" pubdate>
-              2021-01-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/H5/">H5</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/01/07/vuex/" target="_self">
-          <img src="/img/h5/vue.jpg" srcset="/img/loading.gif" alt="vuex">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/07/vuex/">vuex</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/07/vuex/">
-          
-          
-            
-          
-          什么是VuexVuex就是一个状态管理模式，为什么叫模式？因为Vuex包含了一套对state(状态)的操作规范，集中存储管理应用的所有组件的状态。
-
-简单来说就是管理各个组件共享的数据，类似session
-
-session可以存数据，存的过程就是管理，数据的每一次赋值就是当次状态。
-
-Vuex在Vue实例顶层中。
-Vuex也可以理解为java中的一个map，这个map是static（静态资源）的，
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-07 12:59" pubdate>
-              2021-01-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/vue/">vue</a>
+              <a href="/tags/iOS/">iOS</a>
             
           </div>
         
@@ -777,7 +496,7 @@ Vuex也可以理解为java中的一个map，这个map是static（静态资源）
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
     </span>
   </nav>
   
