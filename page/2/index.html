@@ -179,6 +179,207 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/02/03/swift-method/" target="_self">
+          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="方法、下标">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/03/swift-method/">方法、下标</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/03/swift-method/">
+          
+          
+            
+          
+          方法类、枚举、结构体都可以定义实例方法、类方法
+
+实例方法，通过实例对象调用
+
+类方法 通过类型调用，通过static\class定义
+
+
+12345678910class Car &#123;    //使用了 gcd once 保证线程安全        //本质就是一个全局变量    static var count: Int = 0        static func getCounte
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-03 15:25" pubdate>
+              2021-02-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Swift/">Swift</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ios/">ios</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/02/03/swift-closure/" target="_self">
+          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="闭包">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/03/swift-closure/">闭包</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/03/swift-closure/">
+          
+          
+            
+          
+          闭包-个函数和它捕获的变量或常量组合起来，成为闭包
+
+一般是定义在函数内部的函数
+
+一般它捕获的是外层函数的局部变量或常量
+
+
+12345678910111213typealias Fn = (Int) -&gt; Intfunc getFn () -&gt; Fn &#123;    //申请一块堆空间内存 保存num    var num = 0    func plus (_ i: Int)
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-03 13:45" pubdate>
+              2021-02-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Swift/">Swift</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ios/">ios</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/02/03/swift-property/" target="_self">
+          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="属性">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/03/swift-property/">属性</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/03/swift-property/">
+          
+          
+            
+          
+          属性介绍swift跟实例相关的属性大致可以分为两种
+存储属性
+
+类似于成员变量的概念
+
+可以存储在实例对象内存中
+
+结构体、类可以定义存储属性 枚举不可以
+
+
+计算属性
+
+本质就是方法
+
+不占用实例内存
+
+结构体、类、枚举都可以定义计算属性
+
+
+存储属性
+可以在初始化器里为存储属性设置一个初始化值
+
+可以分配一个默认的属性值作为属性定义的一部分
+
+
+计算属性set 传入的新值默认交newValue
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-03 10:29" pubdate>
+              2021-02-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Swift/">Swift</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ios/">ios</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/02/02/swift-structclass/" target="_self">
           <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="结构体和类">
         </a>
@@ -586,186 +787,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/basic/">basic</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/01/07/this/" target="_self">
-          <img src="/img/h5/fronted.jpg" srcset="/img/loading.gif" alt="this 指向问题">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/07/this/">this 指向问题</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/07/this/">
-          
-          
-            
-          
-          JavaScript this 关键字面向对象语言中 this 表示当前对象的一个引用。但在 JavaScript 中 this 不是固定不变的，它会随着执行境的改变而改变
-哪个对象调用函数，函数里面的this指向哪个对象
-可以分为这5种情况讨论
-
-作为普通函数被调用
-作为对象属性被调用
-作为构造函数
-call和apply的应用
-箭头函数
-
-普通函数被调用1234   function test(
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-07 14:12" pubdate>
-              2021-01-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/H5/">H5</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/01/07/es6/" target="_self">
-          <img src="/img/h5/fronted.jpg" srcset="/img/loading.gif" alt="ES6特性">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/07/es6/">ES6特性</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/07/es6/">
-          
-          
-            
-          
-          块级作用域​ES6之前没有块级作用域，ES5的var没有块级作用域的概念，只有function有作用域的概念，ES6的let、const引入了块级作用域。​ES5之前if和for都没有作用域，所以很多时候需要使用function的作用域，比如闭包。
-什么是变量作用域​变量在什么范围内可用，类似Java的全局变量和局部变量的概念，全局变量，全局都可用，局部变量只在范围内可用。ES5之前的var是没有
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-07 13:53" pubdate>
-              2021-01-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/H5/">H5</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/01/07/vuex/" target="_self">
-          <img src="/img/h5/vue.jpg" srcset="/img/loading.gif" alt="vuex">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/07/vuex/">vuex</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/07/vuex/">
-          
-          
-            
-          
-          什么是VuexVuex就是一个状态管理模式，为什么叫模式？因为Vuex包含了一套对state(状态)的操作规范，集中存储管理应用的所有组件的状态。
-
-简单来说就是管理各个组件共享的数据，类似session
-
-session可以存数据，存的过程就是管理，数据的每一次赋值就是当次状态。
-
-Vuex在Vue实例顶层中。
-Vuex也可以理解为java中的一个map，这个map是static（静态资源）的，
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-07 12:59" pubdate>
-              2021-01-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/vue/">vue</a>
             
           </div>
         

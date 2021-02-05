@@ -178,6 +178,174 @@
   <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/05/swift-ocMixed/">oc与swift混编</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/05/swift-ocMixed/">
+          
+          
+            
+          
+          swift 调用 oc
+创建oc 文件默认生成 xxxx-Bridging-Header.h头文件
+
+将 xxxx-Bridging-Header.h中 #import 暴露给swift 内容
+
+
+swift调用oc- TestPerson.h .m12345678910111213int sum (int a, int b);void testSwift();@interface TestPer
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-05 15:50" pubdate>
+              2021-02-05
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/02/05/swift-Memory/" target="_self">
+          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="内存管理">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/05/swift-Memory/">内存管理</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/05/swift-Memory/">
+          
+          
+            
+          
+          swift内存管理跟oc一样，swift也是采取基于引用计数的ARC内存管理方案
+swift的ARC有3中引用
+
+强引用，默认情况下,引用都是强引用
+
+弱引用（weak）,通过weak定义弱引用（必须是可选类型var,实例销毁后，ARC会自动将弱引用置为nil ,ARC给弱引用置为nil时，不会触发属性观察器）
+
+无主引用（unowned）,通过无主引用unowned定义无主引用（不会产生强引用，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-05 09:54" pubdate>
+              2021-02-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Swift/">Swift</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ios/">ios</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/02/05/swift-AccessControl/" target="_self">
+          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="访问控制">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/05/swift-AccessControl/">访问控制</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/05/swift-AccessControl/">
+          
+          
+            
+          
+          访问权限swift提供了5个不同的访问权限
+
+open: 公开权限, 最高的权限, 可以被其他模块访问, 继承及复写
+
+public: 允许在定义实体的模块，其他模块访问，不允许被其他模块继承重写
+
+internal: 只允许在定义的实体模块中访问，不允许在其他模块访问
+
+fileprivate: 只允许在定义的实体源文件中访问
+
+private: 只允许在定义实体的封闭空间访问
+
+
+访问级别规则
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-05 09:06" pubdate>
+              2021-02-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Swift/">Swift</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ios/">ios</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/02/04/swift-extension/" target="_self">
           <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="扩展">
@@ -582,207 +750,6 @@ swift中可以通过Error协议自定义错误信息
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
             <time datetime="2021-02-03 16:49" pubdate>
-              2021-02-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Swift/">Swift</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/ios/">ios</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/03/swift-method/" target="_self">
-          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="方法、下标">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/03/swift-method/">方法、下标</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/03/swift-method/">
-          
-          
-            
-          
-          方法类、枚举、结构体都可以定义实例方法、类方法
-
-实例方法，通过实例对象调用
-
-类方法 通过类型调用，通过static\class定义
-
-
-12345678910class Car &#123;    //使用了 gcd once 保证线程安全        //本质就是一个全局变量    static var count: Int = 0        static func getCounte
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-03 15:25" pubdate>
-              2021-02-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Swift/">Swift</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/ios/">ios</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/03/swift-closure/" target="_self">
-          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="闭包">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/03/swift-closure/">闭包</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/03/swift-closure/">
-          
-          
-            
-          
-          闭包-个函数和它捕获的变量或常量组合起来，成为闭包
-
-一般是定义在函数内部的函数
-
-一般它捕获的是外层函数的局部变量或常量
-
-
-12345678910111213typealias Fn = (Int) -&gt; Intfunc getFn () -&gt; Fn &#123;    //申请一块堆空间内存 保存num    var num = 0    func plus (_ i: Int)
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-03 13:45" pubdate>
-              2021-02-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Swift/">Swift</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/ios/">ios</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/03/swift-property/" target="_self">
-          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="属性">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/03/swift-property/">属性</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/03/swift-property/">
-          
-          
-            
-          
-          属性介绍swift跟实例相关的属性大致可以分为两种
-存储属性
-
-类似于成员变量的概念
-
-可以存储在实例对象内存中
-
-结构体、类可以定义存储属性 枚举不可以
-
-
-计算属性
-
-本质就是方法
-
-不占用实例内存
-
-结构体、类、枚举都可以定义计算属性
-
-
-存储属性
-可以在初始化器里为存储属性设置一个初始化值
-
-可以分配一个默认的属性值作为属性定义的一部分
-
-
-计算属性set 传入的新值默认交newValue
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-03 10:29" pubdate>
               2021-02-03
             </time>
           </div>

@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>扩展 - tablog</title>
+  <title>访问控制 - tablog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="扩展">
+            <span class="h2" id="subtitle" title="访问控制">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-04 16:21" pubdate>
-        2021年2月4日 下午
+      <time datetime="2021-02-05 09:06" pubdate>
+        2021年2月5日 上午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      292 字
+      994 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      11
        分钟
     </span>
   
@@ -224,31 +224,99 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">扩展</h1>
+            <h1 style="display: none">访问控制</h1>
             
             <div class="markdown-body">
-              <h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>swift中扩展类似于oc 中分类<br><strong>扩展可以为枚举、类、结构体、协议增添新功能</strong><br>可以添加，方法，计算属性、下标、便捷初始化器、协议等</p>
-<p><strong>扩展不能做的事</strong></p>
+              <h3 id="访问权限"><a href="#访问权限" class="headerlink" title="访问权限"></a>访问权限</h3><p>swift提供了5个不同的访问权限</p>
 <ul>
-<li><p>不能覆盖原有功能</p>
+<li><p>open: 公开权限, 最高的权限, 可以被其他模块访问, 继承及复写</p>
 </li>
-<li><p>不能添加存储属性，不能向已有的属性添加属性观察器</p>
+<li><p>public: 允许在定义实体的模块，其他模块访问，不允许被其他模块继承重写</p>
 </li>
-<li><p>不能添加父类</p>
+<li><p>internal: 只允许在定义的实体模块中访问，不允许在其他模块访问</p>
 </li>
-<li><p>不能添加指定初始化器与反初始化器</p>
+<li><p>fileprivate: 只允许在定义的实体源文件中访问</p>
+</li>
+<li><p>private: 只允许在定义实体的封闭空间访问</p>
 </li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Array</span> </span>&#123;<br>    <span class="hljs-keyword">subscript</span>(nullable idx: <span class="hljs-type">Int</span>) -&gt; <span class="hljs-type">Element?</span> &#123;<br>        <span class="hljs-keyword">if</span> (startIndex..&lt;endIndex).<span class="hljs-built_in">contains</span>(idx) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>[idx]<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span><br>    &#125;<br>    <br>&#125;<br><br><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>]<br><br><span class="hljs-keyword">var</span> a = arr[nullable: <span class="hljs-number">2</span>]! <br><span class="hljs-built_in">print</span>(a)<br></code></pre></td></tr></table></figure>
+<h3 id="访问级别规则"><a href="#访问级别规则" class="headerlink" title="访问级别规则"></a>访问级别规则</h3><ul>
+<li>一个实体不可以被更低访问级别的实体定义，如下：</li>
+</ul>
+<ol>
+<li><p>变量\常量类型  ≥ 变量\常量</p>
+</li>
+<li><p>参数类型、返回值类型  ≥ 函数</p>
+</li>
+<li><p>父类 ≥子类</p>
+</li>
+<li><p>父协议 ≥子协议</p>
+</li>
+<li><p>原类型 ≥typealias</p>
+</li>
+<li><p>原始值类型、关联值类型 ≥枚举类型</p>
+</li>
+<li><p>定义类型A时用到的其他类型 ≥类型A</p>
+<p>……</p>
+</li>
+</ol>
+<h3 id="元祖、泛型"><a href="#元祖、泛型" class="headerlink" title="元祖、泛型"></a>元祖、泛型</h3><p>元祖访问级别是成员中访问级别最低的那个</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">internal</span> <span class="hljs-keyword">class</span> <span class="hljs-type">Dog</span> &#123;&#125;<br><span class="hljs-title">fileprivate</span> <span class="hljs-keyword">class</span> <span class="hljs-type">Animal</span> &#123;&#125;<br><br><span class="hljs-title">fileprivate</span> var <span class="hljs-class"><span class="hljs-keyword">data</span>: (<span class="hljs-type">Dog</span>, <span class="hljs-type">Animal</span>) // (<span class="hljs-type">Dog</span>, <span class="hljs-type">Animal</span>)的访问级别是fileprivate</span><br></code></pre></td></tr></table></figure>
+<p>泛型类型的访问级别是类型访问级别以及所有泛型类型参数参数访问级别最低那个</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span>ernal <span class="hljs-keyword">class</span> <span class="hljs-symbol">Dog</span> &#123;&#125;<br>fileprivate <span class="hljs-keyword">class</span> <span class="hljs-symbol">Cat</span> &#123;&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">Animal</span>&lt;<span class="hljs-symbol">T1, <span class="hljs-symbol">T2</span></span>&gt; &#123;&#125;<br><br>fileprivate var animal = Animal&lt;Dog, Cat&gt;() <span class="hljs-comment">// Animal&lt;Dog, Cat&gt;()的访问级别是fileprivate</span><br></code></pre></td></tr></table></figure>
+<h3 id="成员、嵌套类型"><a href="#成员、嵌套类型" class="headerlink" title="成员、嵌套类型"></a>成员、嵌套类型</h3><p>类型的访问级别会影响成员（属性、方法、初始化器、下标）、嵌套类型的访问级别</p>
+<ul>
+<li>一般情况下，类型为private 或 fileprivate，那么成员\嵌套类型默认也是private 或 fileprivate</li>
+</ul>
+<ul>
+<li>一般情况下，类型为internal 或 public，那么成员\嵌套类型默认是internal</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>&#123;<br>    <span class="hljs-keyword">var</span> name: <span class="hljs-built_in">String</span> = <span class="hljs-string">&quot;zhansan&quot;</span> <span class="hljs-comment">//private</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><p>扩展可以给协议提供默认实现，也可以间接提供可选协议</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">TestProtocol</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">TestProtocol</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;test&quot;</span>)<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;test1&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>如果一个类已经实现了协议所有要求，但还没有声明遵守它，可以通过扩展来实现</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">TestProtocol</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">testClass</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;test&quot;</span>)<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">testClass</span>: <span class="hljs-title">TestProtocol</span></span>&#123;&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="getter、setter"><a href="#getter、setter" class="headerlink" title="getter、setter"></a>getter、setter</h3><ul>
+<li><p>getter、setter默认自动接收它们所属环境的访问级别</p>
+</li>
+<li><p>可以给setter单独设置一个比getter更低的访问级别，用以限制写的权限<br>注意：getter的权限不能比setter低</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql">num可以在其他实体中被访问，但是只能在当前文件中被修改<br>fileprivate(<span class="hljs-keyword">set</span>) <span class="hljs-keyword">public</span> <span class="hljs-keyword">var</span> <span class="hljs-keyword">num</span> = <span class="hljs-number">5</span><br><br><span class="hljs-keyword">class</span> Person &#123;<br>    <span class="hljs-keyword">private</span>(<span class="hljs-keyword">set</span>) <span class="hljs-keyword">var</span> <span class="hljs-keyword">name</span> = <span class="hljs-string">&quot;lisi&quot;</span><br>    fileprivate(<span class="hljs-keyword">set</span>) <span class="hljs-keyword">public</span> <span class="hljs-keyword">var</span> age: <span class="hljs-built_in">Int</span> &#123;<br>        <span class="hljs-keyword">set</span> &#123;&#125;<br>        <span class="hljs-keyword">get</span> &#123; <span class="hljs-number">10</span> &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Stack</span>&lt;<span class="hljs-title">E</span>&gt; </span>&#123;<br>    <span class="hljs-keyword">var</span> elements = [<span class="hljs-type">E</span>]()<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">push</span><span class="hljs-params">(<span class="hljs-keyword">_</span> element: E)</span></span> &#123;<br>        elements.append(element)<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Stack</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span>  <span class="hljs-title">top</span><span class="hljs-params">()</span></span> -&gt;  <span class="hljs-type">E</span>&#123;<br>        elements.last!<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h3 id="初始化器"><a href="#初始化器" class="headerlink" title="初始化器"></a>初始化器</h3><ul>
+<li><p>如果一个public类想在另一个模块调用编译生成的默认无参初始化器，必须 public的无参初始化器</p>
+</li>
+<li><p> 因为public类的默认初始化器是internal级别（在写一些提供给别人用的库的时候会用到）</p>
+</li>
+<li><p>required初始化器≥它的默认访问级别</p>
+</li>
+<li><p>如果结构体有private\fileprivate的存储实例属性，那么它的也是private\fileprivate</p>
+</li>
+</ul>
+<h3 id="枚举类型的case、协议"><a href="#枚举类型的case、协议" class="headerlink" title="枚举类型的case、协议"></a>枚举类型的case、协议</h3><ul>
+<li><p>不能给enum的每个case单独设置访问级别</p>
+</li>
+<li><p>每个case自动接收enum的访问级别</p>
+</li>
+</ul>
+<p>自动接收协议的访问级别，不能单独设置访问级别</p>
+<p>协议实现的访问级别必须 ≥ 类型访问级别,或者 ≥ 协议访问级别</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">TestProtocol</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span><br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> : <span class="hljs-title">TestProtocol</span> </span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;run&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><ul>
+<li><p>如果有显示设置扩展的访问级别，扩展添加的成员自动接收扩展的访问级别</p>
+</li>
+<li><p>如果没有显示设置扩展的访问级别，扩展添加的成员默认访问级别，跟直接在类型中定义的成员一样</p>
+</li>
+<li><p>可以单独给扩展中添加的成员设置访问级别</p>
+</li>
+<li><p>不能给遵守协议的扩展显示设置扩展的访问级别</p>
+</li>
+</ul>
+<p>在同一个文件中的扩展，可以写成类似多个部分的类型声明</p>
+<ul>
+<li>在原本的声明中，声明一个私有成员，可以在同一个文件的扩展中访问它。</li>
+<li>在扩展中声明一个私有成员，也可以在同一个文件的其他扩展中，或者原本的声明中访问它。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;<br>   <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> &#123;<br>        run1()<br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Person</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run1</span><span class="hljs-params">()</span></span> &#123;<br>         <br>     &#125;<br>&#125;<br>p<br></code></pre></td></tr></table></figure>
 
 
             </div>
@@ -278,9 +346,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/05/swift-AccessControl/">
+                      <a href="/2021/02/05/swift-Memory/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">访问控制</span>
+                        <span class="hidden-mobile">内存管理</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -288,8 +356,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/04/swift-operator/">
-                        <span class="hidden-mobile">高级运算符</span>
+                      <a href="/2021/02/04/swift-extension/">
+                        <span class="hidden-mobile">扩展</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
