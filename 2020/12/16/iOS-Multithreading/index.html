@@ -278,7 +278,7 @@
 <p>系统是怎样移除一个isfinished=Yes的NSOperation？</p>
 <p>通过kvo</p>
 <h3 id="NSTread"><a href="#NSTread" class="headerlink" title="NSTread"></a>NSTread</h3><p>启动流程</p>
-<p><img src="/img/ios/multith/barrier.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/ios/multith/tread.png" srcset="/img/loading.gif"></p>
 <p>一般我们用NSTread和runloop 结合来是一个常驻线程</p>
 <h3 id="dispatch-semaphore-t"><a href="#dispatch-semaphore-t" class="headerlink" title="dispatch_semaphore_t"></a>dispatch_semaphore_t</h3><p>信号量：就是一种可用来控制访问资源的数量的标识，设定了一个信号量，在线程访问之前，加上信号量的处理，则可告知系统按照我们指定的信号量数量来执行多个线程。<br>异步线程下同步问题</p>
 <p>//创建信号量，参数：信号量的初值，如果小于0则会返回NULL<br>dispatch_semaphore_create（信号量值）</p>
