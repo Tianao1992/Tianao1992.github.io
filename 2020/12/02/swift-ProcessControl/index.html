@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/favicon.png">
+  <link rel="icon" type="image/png" href="/img/bg/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>流程控制 - tablog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>tablog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg/background.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="流程控制">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-02 14:03" pubdate>
+        2020年12月2日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      447 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">流程控制</h1>
+            
+            <div class="markdown-body">
+              <h3 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h3><p>swift 中去掉了非0即真的概念 if 条件后面只能是bool类型<br>下面代码编译报错</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">let age = <span class="hljs-number">1</span><br><br><span class="hljs-keyword">if</span> age &#123; <br>    print(&quot;123&quot;)<br>&#125;<br>//<span class="hljs-keyword">Type</span> <span class="hljs-string">&#x27;Int&#x27;</span> cannot be used <span class="hljs-keyword">as</span> a <span class="hljs-type">boolean</span>; test <span class="hljs-keyword">for</span> <span class="hljs-string">&#x27;!= 0&#x27;</span> <span class="hljs-keyword">instead</span><br><br></code></pre></td></tr></table></figure>
+
+<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">var</span> <span class="hljs-built_in">num</span> = <span class="hljs-number">5</span><br><span class="hljs-keyword">while</span> <span class="hljs-built_in">num</span> &gt; <span class="hljs-number">0</span> &#123;<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">num</span>) <span class="hljs-comment">//打印五次</span><br>    <span class="hljs-built_in">num</span> -= <span class="hljs-number">1</span><br>&#125;<br><br><span class="hljs-keyword">var</span> <span class="hljs-built_in">num</span> = <span class="hljs-number">-1</span><br><br>repeat&#123;<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">num</span>) <span class="hljs-comment">//打印一次</span><br>&#125; <span class="hljs-keyword">while</span> <span class="hljs-built_in">num</span> &gt; <span class="hljs-number">0</span><br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>repeat-while 相当于do-while</p>
+</li>
+<li><p>swift去掉了 自减– 和 自增++</p>
+</li>
+</ul>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><h4 id="区间运算符"><a href="#区间运算符" class="headerlink" title="区间运算符"></a>区间运算符</h4><p>闭区间运算符 a…b   a&lt;= 取值 &lt;= b</p>
+<figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs golo"><span class="hljs-keyword">let</span> names = [<span class="hljs-string">&quot;zhangsan&quot;</span>,<span class="hljs-string">&quot;lisi&quot;</span>,<span class="hljs-string">&quot;wangwu&quot;</span>,<span class="hljs-string">&quot;zhaoliu&quot;</span>]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0.</span>.<span class="hljs-number">.3</span> &#123;<br>  <span class="hljs-keyword">print</span>(names[i])<br>&#125;<br><br>// <span class="hljs-keyword">for</span> 默认是<span class="hljs-keyword">let</span> 如果要使用加<span class="hljs-keyword">var</span> <br><br></code></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-keyword">for</span> <span class="hljs-selector-tag">var</span> <span class="hljs-selector-tag">i</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>...<span class="hljs-number">3</span> &#123;<br>    <span class="hljs-selector-tag">i</span> += <span class="hljs-number">1</span><br>    print(i)<span class="hljs-comment">// 1234</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>半开区间运算符   a..&lt;b   a&lt;= 取值 &lt; b</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">let</span> names = [<span class="hljs-string">&quot;zhangsan&quot;</span>,<span class="hljs-string">&quot;lisi&quot;</span>,<span class="hljs-string">&quot;wangwu&quot;</span>,<span class="hljs-string">&quot;zhaoliu&quot;</span>]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> 0..&lt;3 &#123;<br>  <span class="hljs-built_in">print</span>(names[i])<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>单侧区间： 让区间方向尽可能的远</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sqf">let names = [<span class="hljs-string">&quot;zhangsan&quot;</span>,<span class="hljs-string">&quot;lisi&quot;</span>,<span class="hljs-string">&quot;wangwu&quot;</span>,<span class="hljs-string">&quot;zhaoliu&quot;</span>]<br><br><span class="hljs-keyword">for</span> <span class="hljs-built_in">name</span> <span class="hljs-built_in">in</span> names[<span class="hljs-number">2</span>...] &#123;<br>    print(<span class="hljs-string">&quot;11&quot;</span>,<span class="hljs-built_in">name</span>)<span class="hljs-comment">//11 wangwu  11 zhaoliu</span><br>&#125;<br><br><span class="hljs-keyword">for</span> <span class="hljs-built_in">name</span> <span class="hljs-built_in">in</span> names[...<span class="hljs-number">2</span>] &#123;<br>    print(<span class="hljs-string">&quot;22&quot;</span>,<span class="hljs-built_in">name</span>)<span class="hljs-comment">//22 zhangsan 22 lisi 22 wangwu</span><br>&#125;<br><br><span class="hljs-keyword">for</span> <span class="hljs-built_in">name</span> <span class="hljs-built_in">in</span> names[..&lt;<span class="hljs-number">2</span>] &#123;<br>    print(<span class="hljs-string">&quot;33&quot;</span>,<span class="hljs-built_in">name</span>) <span class="hljs-comment">//33 zhangsan 33 lisi</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><p>去掉了 case default{},不写break 不会贯穿</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-built_in">var</span> number = <span class="hljs-number">1</span><br><br><span class="hljs-keyword">switch</span> number &#123;<br><span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>    <span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;1&quot;</span>)<br><span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>    <span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;2&quot;</span>)<br><span class="hljs-literal">default</span>:<br>    <span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;other&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>使用fallthrough可以实现贯穿</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> number = <span class="hljs-number">1</span><br><br><span class="hljs-keyword">switch</span> number &#123;<br><span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;1&quot;</span>)<br>    <span class="hljs-keyword">fallthrough</span><br><span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;2&quot;</span>)<br><span class="hljs-keyword">default</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;other&quot;</span>)<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<p>switch可以比配元祖</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs dart">let <span class="hljs-built_in">num</span> = (<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)<br><span class="hljs-keyword">switch</span> <span class="hljs-built_in">num</span> &#123;<br><span class="hljs-keyword">case</span> (<span class="hljs-number">0</span>,<span class="hljs-number">0</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;no&quot;</span>)<br><span class="hljs-keyword">case</span>(<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;no&quot;</span>)<br><span class="hljs-keyword">case</span>(<span class="hljs-number">-2</span>,<span class="hljs-number">2</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;yes&quot;</span>)<br><span class="hljs-keyword">default</span>:<br>    <span class="hljs-keyword">break</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>可以值绑定，可以使用where条件过滤</strong></p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs gml">let point = (<span class="hljs-number">1</span>,<span class="hljs-number">-1</span>)<br><span class="hljs-keyword">switch</span> point &#123;<br><span class="hljs-keyword">case</span> let (<span class="hljs-symbol">x</span>,<span class="hljs-symbol">y</span>)where <span class="hljs-symbol">x</span> == <span class="hljs-symbol">y</span> :<br>    print(<span class="hljs-string">&quot;no&quot;</span>)<br><span class="hljs-keyword">case</span> let (<span class="hljs-symbol">x</span>,<span class="hljs-symbol">y</span>)where <span class="hljs-symbol">x</span> == -<span class="hljs-symbol">y</span> :<br>    print(<span class="hljs-string">&quot;yes&quot;</span>)<br><span class="hljs-keyword">default</span>:<br>    <span class="hljs-keyword">break</span><br>&#125;<br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Swift/">Swift</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/ios/">ios</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/12/02/swift-func/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">函数</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/02/swift-Basicgrammar/">
+                        <span class="hidden-mobile">基础语法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

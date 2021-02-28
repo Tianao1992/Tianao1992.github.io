@@ -1,0 +1,549 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/favicon.png">
+  <link rel="icon" type="image/png" href="/img/bg/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>前端模块化 - tablog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>tablog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg/background.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="前端模块化">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-07 09:47" pubdate>
+        2020年5月7日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">前端模块化</h1>
+            
+            <div class="markdown-body">
+              <h3 id="什么是前端模块化"><a href="#什么是前端模块化" class="headerlink" title="什么是前端模块化"></a>什么是前端模块化</h3><p>模块化侧重的功能的封装，主要是针对Javascript代码，隔离、组织复制的javascript代码，将它封装成一个个具有特定功能的的模块。</p>
+<p>模块可以通过传递参数的不同修改这个功能的的相关配置，每个模块都是一个单独的作用域，根据需要调用。</p>
+<p>一个模块的实现可以依赖其它模块</p>
+<h3 id="为什么要有模块化"><a href="#为什么要有模块化" class="headerlink" title="为什么要有模块化"></a>为什么要有模块化</h3><p>​随着前端项目越来越大，团队人数越来越多，多人协调开发一个项目成为常态。例如现在小明和小张共同开发一个项目，小明定义一个aaa.js，小王定义了一个bbb.js。</p>
+<blockquote>
+<p>aaa.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//小明开发</span><br><span class="hljs-keyword">var</span> name = <span class="hljs-string">&#x27;小明&#x27;</span><br><span class="hljs-keyword">var</span> age = <span class="hljs-number">22</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">num1, num2</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> num1 + num2<br>&#125;<br><span class="hljs-keyword">var</span> flag = <span class="hljs-literal">true</span><br><span class="hljs-keyword">if</span> (flag) &#123;<br>  <span class="hljs-built_in">console</span>.log(sum(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>));<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>此时小明的<code>sum</code>是没有问题的。</p>
+<blockquote>
+<p>bbb.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//小红</span><br><span class="hljs-keyword">var</span> name = <span class="hljs-string">&quot;小王&quot;</span><br><span class="hljs-keyword">var</span> flag = <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<p>此时小明和小王各自用各自的<code>flag</code>你变量没问题。</p>
+<blockquote>
+<p>但是此时小明又创建了一个mmm.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//小明</span><br><span class="hljs-keyword">if</span>(flag)&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;flag是true&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在index.html页面导入这些js文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs php+HTML">&lt;script src&#x3D;&quot;aaa.js&quot; &gt;&lt;&#x2F;script&gt;<br>&lt;script src&#x3D;&quot;bbb.js&quot; &gt;&lt;&#x2F;script&gt;<br>&lt;script src&#x3D;&quot;ccc.js&quot; &gt;&lt;&#x2F;script&gt;<br></code></pre></td></tr></table></figure>
+
+<p>此时小明知道自己在aaa.js中定义的<code>flag</code>是<code>true</code>，认为打印没有问题，但是不知道小王的bbb.js中也定义了<code>flag</code>为<code>true</code>，所以mmm.js文件并没有打印出“flag是true”。</p>
+<p><strong>这就是全局变量同名问题</strong></p>
+<h3 id="常见的模块化规范"><a href="#常见的模块化规范" class="headerlink" title="常见的模块化规范"></a>常见的模块化规范</h3><p>CommonJS、AMD、CMD、 ES6的Moudels</p>
+<h3 id="全局变量模块解决全局变量同名问题"><a href="#全局变量模块解决全局变量同名问题" class="headerlink" title="全局变量模块解决全局变量同名问题"></a>全局变量模块解决全局变量同名问题</h3><blockquote>
+<p>aaa.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//模块对象</span><br><span class="hljs-keyword">var</span> moduleA = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">param</span>) </span>&#123;<br>  <span class="hljs-comment">//导出对象</span><br>  <span class="hljs-keyword">var</span> obj = &#123;&#125;<br>  <span class="hljs-keyword">var</span> name = <span class="hljs-string">&#x27;小明&#x27;</span><br>  <span class="hljs-keyword">var</span> age = <span class="hljs-number">22</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">num1, num2</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> num1 + num2<br>  &#125;<br>  <span class="hljs-keyword">var</span> flag = <span class="hljs-literal">true</span><br>  <span class="hljs-keyword">if</span> (flag) &#123;<br>    <span class="hljs-built_in">console</span>.log(sum(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>))<br>  &#125;<br>  obj.flag=<span class="hljs-literal">false</span><br>  <span class="hljs-keyword">return</span> obj<br>&#125;)()<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>mmm.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//小明</span><br><span class="hljs-comment">//使用全局变量moduleA</span><br><span class="hljs-keyword">if</span>(moduleA.flag)&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;flag是true&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这样直接使用aaa.js导出的moduleA变量获取小明自己定义的<code>flag</code>。</p>
+<h3 id="CommonJS的模块化实现"><a href="#CommonJS的模块化实现" class="headerlink" title="CommonJS的模块化实现"></a>CommonJS的模块化实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//CommonJS需要nodeJS支持</span><br><span class="hljs-keyword">var</span> name = <span class="hljs-string">&#x27;小明&#x27;</span><br><span class="hljs-keyword">var</span> age = <span class="hljs-number">22</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">num1, num2</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> num1 + num2<br>&#125;<br><span class="hljs-keyword">var</span> flag = <span class="hljs-literal">true</span><br><span class="hljs-keyword">if</span> (flag) &#123;<br>  <span class="hljs-built_in">console</span>.log(sum(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>))<br>&#125;<br><br><span class="hljs-comment">//导出对象</span><br><span class="hljs-built_in">module</span>.exports = &#123;<br>  flag,<br>  sum<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>使用<code>module.exports = &#123;&#125;</code>导出需要的对象。</p>
+<blockquote>
+<p>mmm.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//导入对象,nodejs语法,需要node支持,从aaa.js取出对象</span><br><span class="hljs-keyword">var</span> &#123;flag,sum&#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./aaa&quot;</span>)<br><br><span class="hljs-built_in">console</span>.log(sum(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>));<br><br><span class="hljs-keyword">if</span>(flag)&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;flag is true&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>使用 <code>var &#123;flag,sum&#125; = require(&quot;./aaa&quot;)</code>获取已经导出的对象中自己所需要的对象。</p>
+<h3 id="ES6的模块化实现"><a href="#ES6的模块化实现" class="headerlink" title="ES6的模块化实现"></a>ES6的模块化实现</h3><p>​如何实现模块化，在html中需要使用<code>type=&#39;module&#39;</code>属性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;aaa.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;bbb.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;mmm.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>此时表示aaa.js是一个单独的模块，此模块是有作用域的。如果要使用aaa.js内的变量，需要在aaa.js中先导出变量，再在需要使用的地方导出变量。</p>
+<h4 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> name = <span class="hljs-string">&#x27;小明&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123;name&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./aaa.js&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>./aaa.js</code>表示aaa.js和mmm.js在同级目录。</p>
+<p>如图打印结果。</p>
+<h4 id="统一导出"><a href="#统一导出" class="headerlink" title="统一导出"></a>统一导出</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> age = <span class="hljs-number">22</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">num1, num2</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> num1 + num2<br>&#125;<br><span class="hljs-keyword">var</span> flag = <span class="hljs-literal">true</span><br><span class="hljs-keyword">if</span> (flag) &#123;<br>  <span class="hljs-built_in">console</span>.log(sum(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>))<br>&#125;<br><span class="hljs-comment">//2.最后统一导出</span><br><span class="hljs-keyword">export</span> &#123;<br>  flag,sum,age<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用<code>import &#123;name,flag,sum&#125; from &#39;./aaa.js&#39;</code>导入多个变量</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123;name,flag,sum&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./aaa.js&#x27;</span><br><br><span class="hljs-built_in">console</span>.log(name)<br><br><span class="hljs-keyword">if</span>(flag)&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;小明是天才&quot;</span>);<br>&#125;<br><br><span class="hljs-built_in">console</span>.log(sum(<span class="hljs-number">20</span>,<span class="hljs-number">30</span>));<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用{}将需要的变量放置进去</p>
+</blockquote>
+<h4 id="导出函数-类"><a href="#导出函数-类" class="headerlink" title="导出函数/类"></a>导出函数/类</h4><blockquote>
+<p>在aaa.js中添加</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//3.导出函数/类</span><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">say</span>(<span class="hljs-params">value</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(value);<br>&#125;<br><span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>&#123;<br>  <span class="hljs-function"><span class="hljs-title">run</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;奔跑&quot;</span>);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在mmm.js中添加</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123;name,flag,sum,say,Person&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./aaa.js&#x27;</span><br><br><span class="hljs-built_in">console</span>.log(name)<br><br><span class="hljs-keyword">if</span>(flag)&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;小明是天才&quot;</span>);<br>&#125;<br><br><span class="hljs-built_in">console</span>.log(sum(<span class="hljs-number">20</span>,<span class="hljs-number">30</span>));<br><br>say(<span class="hljs-string">&#x27;hello&#x27;</span>)<br><span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> Person();<br>p.run();<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如图</p>
+</blockquote>
+<p><img src="./images/14.4-3.png" srcset="/img/loading.gif"></p>
+<p>###默认导入 export default</p>
+<blockquote>
+<p>导出</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  flag,sum,age<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>导入</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//4.默认导入 export default</span><br><span class="hljs-keyword">import</span> aaa <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./aaa.js&#x27;</span><br><span class="hljs-built_in">console</span>.log(aaa.sum(<span class="hljs-number">10</span>,<span class="hljs-number">110</span>));<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：使用默认导出会将所有需要导出的变量打包成一个对象，此时导出一个对象，此时我在<code>mmm.js</code>中导入变量时候命名为aaa，如果要调用变量需要使用aaa.变量。</p>
+</blockquote>
+<h3 id="统一全部导入"><a href="#统一全部导入" class="headerlink" title="统一全部导入"></a>统一全部导入</h3><blockquote>
+<p>​    使用<code>import * as aaa from &#39;./aaa.js&#39;</code>统一全部导入</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 5.统一全部导入</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> aaa <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./aaa.js&#x27;</span><br><span class="hljs-built_in">console</span>.log(aaa.flag);<br><span class="hljs-built_in">console</span>.log(aaa.name);<br></code></pre></td></tr></table></figure>
+
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/H5/">H5</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/07/vue-router/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">vue-router</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/03/24/LinkedList/">
+                        <span class="hidden-mobile">数据结构-链表</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

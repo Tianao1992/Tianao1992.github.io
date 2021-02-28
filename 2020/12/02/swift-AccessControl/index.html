@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/favicon.png">
+  <link rel="icon" type="image/png" href="/img/bg/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>访问控制 - tablog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>tablog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg/background.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="访问控制">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-02 09:06" pubdate>
+        2020年12月2日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      994 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      11
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">访问控制</h1>
+            
+            <div class="markdown-body">
+              <h3 id="访问权限"><a href="#访问权限" class="headerlink" title="访问权限"></a>访问权限</h3><p>swift提供了5个不同的访问权限</p>
+<ul>
+<li><p>open: 公开权限, 最高的权限, 可以被其他模块访问, 继承及复写</p>
+</li>
+<li><p>public: 允许在定义实体的模块，其他模块访问，不允许被其他模块继承重写</p>
+</li>
+<li><p>internal: 只允许在定义的实体模块中访问，不允许在其他模块访问</p>
+</li>
+<li><p>fileprivate: 只允许在定义的实体源文件中访问</p>
+</li>
+<li><p>private: 只允许在定义实体的封闭空间访问</p>
+</li>
+</ul>
+<h3 id="访问级别规则"><a href="#访问级别规则" class="headerlink" title="访问级别规则"></a>访问级别规则</h3><ul>
+<li>一个实体不可以被更低访问级别的实体定义，如下：</li>
+</ul>
+<ol>
+<li><p>变量\常量类型  ≥ 变量\常量</p>
+</li>
+<li><p>参数类型、返回值类型  ≥ 函数</p>
+</li>
+<li><p>父类 ≥子类</p>
+</li>
+<li><p>父协议 ≥子协议</p>
+</li>
+<li><p>原类型 ≥typealias</p>
+</li>
+<li><p>原始值类型、关联值类型 ≥枚举类型</p>
+</li>
+<li><p>定义类型A时用到的其他类型 ≥类型A</p>
+<p>……</p>
+</li>
+</ol>
+<h3 id="元祖、泛型"><a href="#元祖、泛型" class="headerlink" title="元祖、泛型"></a>元祖、泛型</h3><p>元祖访问级别是成员中访问级别最低的那个</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">internal</span> <span class="hljs-keyword">class</span> <span class="hljs-type">Dog</span> &#123;&#125;<br><span class="hljs-title">fileprivate</span> <span class="hljs-keyword">class</span> <span class="hljs-type">Animal</span> &#123;&#125;<br><br><span class="hljs-title">fileprivate</span> var <span class="hljs-class"><span class="hljs-keyword">data</span>: (<span class="hljs-type">Dog</span>, <span class="hljs-type">Animal</span>) // (<span class="hljs-type">Dog</span>, <span class="hljs-type">Animal</span>)的访问级别是fileprivate</span><br></code></pre></td></tr></table></figure>
+<p>泛型类型的访问级别是类型访问级别以及所有泛型类型参数参数访问级别最低那个</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span>ernal <span class="hljs-keyword">class</span> <span class="hljs-symbol">Dog</span> &#123;&#125;<br>fileprivate <span class="hljs-keyword">class</span> <span class="hljs-symbol">Cat</span> &#123;&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">Animal</span>&lt;<span class="hljs-symbol">T1, <span class="hljs-symbol">T2</span></span>&gt; &#123;&#125;<br><br>fileprivate var animal = Animal&lt;Dog, Cat&gt;() <span class="hljs-comment">// Animal&lt;Dog, Cat&gt;()的访问级别是fileprivate</span><br></code></pre></td></tr></table></figure>
+<h3 id="成员、嵌套类型"><a href="#成员、嵌套类型" class="headerlink" title="成员、嵌套类型"></a>成员、嵌套类型</h3><p>类型的访问级别会影响成员（属性、方法、初始化器、下标）、嵌套类型的访问级别</p>
+<ul>
+<li>一般情况下，类型为private 或 fileprivate，那么成员\嵌套类型默认也是private 或 fileprivate</li>
+</ul>
+<ul>
+<li>一般情况下，类型为internal 或 public，那么成员\嵌套类型默认是internal</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>&#123;<br>    <span class="hljs-keyword">var</span> name: <span class="hljs-built_in">String</span> = <span class="hljs-string">&quot;zhansan&quot;</span> <span class="hljs-comment">//private</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="getter、setter"><a href="#getter、setter" class="headerlink" title="getter、setter"></a>getter、setter</h3><ul>
+<li><p>getter、setter默认自动接收它们所属环境的访问级别</p>
+</li>
+<li><p>可以给setter单独设置一个比getter更低的访问级别，用以限制写的权限<br>注意：getter的权限不能比setter低</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql">num可以在其他实体中被访问，但是只能在当前文件中被修改<br>fileprivate(<span class="hljs-keyword">set</span>) <span class="hljs-keyword">public</span> <span class="hljs-keyword">var</span> <span class="hljs-keyword">num</span> = <span class="hljs-number">5</span><br><br><span class="hljs-keyword">class</span> Person &#123;<br>    <span class="hljs-keyword">private</span>(<span class="hljs-keyword">set</span>) <span class="hljs-keyword">var</span> <span class="hljs-keyword">name</span> = <span class="hljs-string">&quot;lisi&quot;</span><br>    fileprivate(<span class="hljs-keyword">set</span>) <span class="hljs-keyword">public</span> <span class="hljs-keyword">var</span> age: <span class="hljs-built_in">Int</span> &#123;<br>        <span class="hljs-keyword">set</span> &#123;&#125;<br>        <span class="hljs-keyword">get</span> &#123; <span class="hljs-number">10</span> &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="初始化器"><a href="#初始化器" class="headerlink" title="初始化器"></a>初始化器</h3><ul>
+<li><p>如果一个public类想在另一个模块调用编译生成的默认无参初始化器，必须 public的无参初始化器</p>
+</li>
+<li><p> 因为public类的默认初始化器是internal级别（在写一些提供给别人用的库的时候会用到）</p>
+</li>
+<li><p>required初始化器≥它的默认访问级别</p>
+</li>
+<li><p>如果结构体有private\fileprivate的存储实例属性，那么它的也是private\fileprivate</p>
+</li>
+</ul>
+<h3 id="枚举类型的case、协议"><a href="#枚举类型的case、协议" class="headerlink" title="枚举类型的case、协议"></a>枚举类型的case、协议</h3><ul>
+<li><p>不能给enum的每个case单独设置访问级别</p>
+</li>
+<li><p>每个case自动接收enum的访问级别</p>
+</li>
+</ul>
+<p>自动接收协议的访问级别，不能单独设置访问级别</p>
+<p>协议实现的访问级别必须 ≥ 类型访问级别,或者 ≥ 协议访问级别</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">TestProtocol</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span><br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> : <span class="hljs-title">TestProtocol</span> </span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;run&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><ul>
+<li><p>如果有显示设置扩展的访问级别，扩展添加的成员自动接收扩展的访问级别</p>
+</li>
+<li><p>如果没有显示设置扩展的访问级别，扩展添加的成员默认访问级别，跟直接在类型中定义的成员一样</p>
+</li>
+<li><p>可以单独给扩展中添加的成员设置访问级别</p>
+</li>
+<li><p>不能给遵守协议的扩展显示设置扩展的访问级别</p>
+</li>
+</ul>
+<p>在同一个文件中的扩展，可以写成类似多个部分的类型声明</p>
+<ul>
+<li>在原本的声明中，声明一个私有成员，可以在同一个文件的扩展中访问它。</li>
+<li>在扩展中声明一个私有成员，也可以在同一个文件的其他扩展中，或者原本的声明中访问它。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;<br>   <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> &#123;<br>        run1()<br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Person</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run1</span><span class="hljs-params">()</span></span> &#123;<br>         <br>     &#125;<br>&#125;<br>p<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Swift/">Swift</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/ios/">ios</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/12/02/swift-Basicgrammar/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">基础语法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/31/Sort/">
+                        <span class="hidden-mobile">常见排序</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
