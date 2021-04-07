@@ -1,6 +1,6 @@
 ---
 title: vue-router
-date: 2021-01-07 10:39:52
+date: 2020-5-07 10:39:52
 index_img: /img/h5/vue.jpg
 categories:
 - 前端

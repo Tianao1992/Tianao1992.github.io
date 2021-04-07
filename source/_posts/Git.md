@@ -1,6 +1,6 @@
 ---
 title: Git
-date: 2020-12-16 09:50:48
+date: 2020-2-16 09:50:48
 index_img: /img/ittree/gitimg/gitlogo.png
 categories:
 - ItTree

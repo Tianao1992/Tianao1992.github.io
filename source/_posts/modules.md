@@ -1,6 +1,6 @@
 ---
 title: 前端模块化
-date: 2021-01-07 09:47:40
+date: 2020-05-07 09:47:40
 index_img: /img/h5/fronted.jpg
 categories:
 - 前端

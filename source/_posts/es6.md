@@ -1,6 +1,6 @@
 ---
 title: ES6特性
-date: 2021-01-07 13:53:22
+date: 2020-5-07 13:53:22
 index_img: /img/h5/fronted.jpg
 categories:
 - 前端

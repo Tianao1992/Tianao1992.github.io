@@ -1,6 +1,6 @@
 ---
 title: 多线程
-date: 2020-12-16 15:46:48
+date: 2019-12-16 15:46:48
 index_img: /img/ios/apple.jpg
 categories:
 - iOS
@@ -112,7 +112,7 @@ NSOperation 需要和 NSOperationqueue配合来实现多线程方案
 
 启动流程
 
-![](/img/ios/multith/barrier.png)
+![](/img/ios/multith/tread.png)
 
 一般我们用NSTread和runloop 结合来是一个常驻线程
 

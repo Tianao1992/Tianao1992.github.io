@@ -1,6 +1,6 @@
 ---
 title: vuex
-date: 2021-01-07 12:59:13
+date: 2020-5-07 12:59:13
 index_img: /img/h5/vue.jpg
 categories:
 - 前端

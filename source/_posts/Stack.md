@@ -1,6 +1,6 @@
 ---
 title: 数据结构-栈
-date: 2020-12-23 10:58:27
+date: 2020-3-23 10:58:27
 index_img: /img/bg/datastructures.jpg
 categories:
 - 数据结构

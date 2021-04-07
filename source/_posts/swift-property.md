@@ -1,6 +1,6 @@
 ---
 title: 属性
-date: 2021-02-03 10:29:32
+date: 2020-12-03 10:29:32
 index_img: /img/ios/swift/swift.png
 categories:
 - Swift

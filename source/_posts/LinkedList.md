@@ -1,6 +1,6 @@
 ---
 title: 数据结构-链表
-date: 2020-12-24 09:02:32
+date: 2020-3-24 09:02:32
 index_img: /img/bg/datastructures.jpg
 categories:
 - 数据结构
@@ -282,7 +282,6 @@ function reversList(head) {
 
 ```
 function reversList(head) {
-    //设置递归出口
   if(head == null || head.next == null) {
       return head
   }
