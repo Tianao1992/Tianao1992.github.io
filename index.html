@@ -179,6 +179,72 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/30/iOS-Component/" target="_self">
+          <img src="/img/ios/apple.jpg" srcset="/img/loading.gif" alt="iOS私有组件库">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/30/iOS-Component/">iOS私有组件库</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/30/iOS-Component/">
+          
+          
+            
+          
+          远端索引库远端索引库作用描述
+第三方代码管理 
+平台创建框架描述spec，包含：框架名称、版本、真正代码存放地址=远程地址 
+上传spec到pod的远程索引库
+
+远端索引库制作
+创建git仓库作为.spec 远端私有库
+
+终端 pod repo list 查看本地私有库
+
+pod repo add xxx 添加本地私有库
+
+本地索引库还有一个检索索引文件，当添加第三方库的时候先去检索索引文件查找，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-30 14:01" pubdate>
+              2021-04-30
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/iOS/">iOS</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/iOS/">iOS</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/02/05/swift-ocMixed/" target="_self">
           <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="oc与swift混编">
         </a>
@@ -703,67 +769,6 @@ swift中可以通过Error协议自定义错误信息
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
             <time datetime="2020-12-03 16:49" pubdate>
-              2020-12-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Swift/">Swift</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/ios/">ios</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/12/03/swift-method/" target="_self">
-          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="方法、下标">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/12/03/swift-method/">方法、下标</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/12/03/swift-method/">
-          
-          
-            
-          
-          方法类、枚举、结构体都可以定义实例方法、类方法
-
-实例方法，通过实例对象调用
-
-类方法 通过类型调用，通过static\class定义
-
-
-12345678910class Car &#123;    //使用了 gcd once 保证线程安全        //本质就是一个全局变量    static var count: Int = 0        static func getCounte
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-03 15:25" pubdate>
               2020-12-03
             </time>
           </div>
