@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>iOS私有组件库 - tablog</title>
+  <title>iOS组件化 - tablog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="iOS私有组件库">
+            <span class="h2" id="subtitle" title="iOS组件化">
               
             </span>
 
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      327 字
+      751 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      8
        分钟
     </span>
   
@@ -224,15 +224,18 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">iOS私有组件库</h1>
+            <h1 style="display: none">iOS组件化</h1>
             
             <div class="markdown-body">
-              <h3 id="远端索引库"><a href="#远端索引库" class="headerlink" title="远端索引库"></a>远端索引库</h3><h4 id="远端索引库作用描述"><a href="#远端索引库作用描述" class="headerlink" title="远端索引库作用描述"></a>远端索引库作用描述</h4><ol>
+              <h3 id="组件化需求"><a href="#组件化需求" class="headerlink" title="组件化需求"></a>组件化需求</h3><p>随着公司业务的不断发展，项目的功能越来越复杂，各个业务代码耦合越来越多，代码量急剧增加，传统的 MVC 或者 MVVM 架构已经无法高效的管理工程代码，因此需要用一种技术来更好地管理工程，而组件化是一种能够解决代码耦合的技术。项目经过组件化的拆分，不仅可以解决代码耦合的问题，还可以增强代码的复用性，工程的易管理性等。</p>
+<p>组件化是项目架构层面的技术，不是所有项目都适合组件化，组件化一般针对的是大中型的项目，并且是多人开发。如果，项目比较小，开发人员比较少，确实不太适合组件化，因为这时的组件化可能带来的不是便捷，而是增加了开发的工作量。另外，组件化过程也要考虑团队的情况，总之，根据目前项目的情况作出最合适的技术选型</p>
+<h3 id="组件库层级划分"><a href="#组件库层级划分" class="headerlink" title="组件库层级划分"></a>组件库层级划分</h3><p><img src="/img/ios/component/ceji.png" srcset="/img/loading.gif"></p>
+<h3 id="远端索引库制作"><a href="#远端索引库制作" class="headerlink" title="远端索引库制作"></a>远端索引库制作</h3><h4 id="远端索引库作用描述"><a href="#远端索引库作用描述" class="headerlink" title="远端索引库作用描述"></a>远端索引库作用描述</h4><ol>
 <li>第三方代码管理 </li>
 <li>平台创建框架描述spec，包含：框架名称、版本、真正代码存放地址=远程地址 </li>
 <li>上传spec到pod的远程索引库</li>
 </ol>
-<h4 id="远端索引库制作"><a href="#远端索引库制作" class="headerlink" title="远端索引库制作"></a>远端索引库制作</h4><ol>
+<h4 id="远端索引库制作-1"><a href="#远端索引库制作-1" class="headerlink" title="远端索引库制作"></a>远端索引库制作</h4><ol>
 <li><p>创建git仓库作为.spec 远端私有库</p>
 </li>
 <li><p>终端 pod repo list 查看本地私有库</p>
@@ -263,8 +266,19 @@
 <li>git push –tags</li>
 <li>pod lib lint  本地验证</li>
 <li>pod spec lint 远程验证</li>
-<li>推送到私有索引库 pod repo push TAComponentSpec xxx.podspec –allow-warnings</li>
+<li>推送到私有索引库 pod repo push TAComponentSpec xxx.podspec–allow-warnings</li>
 </ol>
+<h3 id="pod私有库引入工程"><a href="#pod私有库引入工程" class="headerlink" title="pod私有库引入工程"></a>pod私有库引入工程</h3><p>工程podfile文件头部指定 source路径 pod 引入私有库 pod install 引入工程<br><img src="/img/ios/component/source.png" srcset="/img/loading.gif"></p>
+<h3 id="组件库交互-CTMediator"><a href="#组件库交互-CTMediator" class="headerlink" title="组件库交互(CTMediator)"></a>组件库交互(CTMediator)</h3><p><img src="/img/ios/component/ctMediat.png" srcset="/img/loading.gif"></p>
+<p><strong>target</strong></p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">- </span>(UIViewController <span class="hljs-strong">*)Action_nativeFetchDetailViewController:(NSDictionary *</span>)params;<br></code></pre></td></tr></table></figure>
+
+<p><strong>CTMediator分类</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs objectivec"><span class="hljs-comment">// CTMediator+CTMediatorModuleAActions.h</span><br><br>- (<span class="hljs-built_in">UIViewController</span> *)<span class="hljs-built_in">CTMediator_viewControllerForDetail</span>;<br><br><span class="hljs-comment">// CTMediator+CTMediatorModuleAActions.m</span><br><br>- (<span class="hljs-built_in">UIViewController</span> *)<span class="hljs-built_in">CTMediator_viewControllerForDetail</span><br>&#123;<br>	<span class="hljs-keyword">return</span> [<span class="hljs-keyword">self</span> performTarget:kCTMediatorTargetA action:kCTMediatorActionNativFetchDetailViewController params:@&#123;<span class="hljs-string">@&quot;key&quot;</span>:<span class="hljs-string">@&quot;value&quot;</span>&#125; shouldCacheTarget:<span class="hljs-literal">NO</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>调用</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">/ ViewController.h<br><span class="hljs-meta">#import <span class="hljs-meta-string">&quot;CTMediator+CTMediatorModuleAActions.h&quot;</span></span><br><br>[<span class="hljs-keyword">self</span> presentViewController:[[<span class="hljs-built_in">CTMediator</span> sharedInstance] <span class="hljs-built_in">CTMediator_viewControllerForDetail</span>] animated:<span class="hljs-literal">YES</span> completion:<span class="hljs-literal">nil</span>];<br><br></code></pre></td></tr></table></figure>
+<p>从以上代码可以看出，使用者只需要依赖中间件，而中间件又不依赖组件，这是真正意义上的解耦</p>
 
             </div>
             <hr>
