@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.2k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19
+      20
        分钟
     </span>
   
@@ -256,7 +256,8 @@
 </li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testSwift</span>(<span class="hljs-params"></span>)</span> &#123;<br>    Car *car = [[Car alloc] initWithPrice:<span class="hljs-string">@&quot;2200&quot;</span> bind:<span class="hljs-string">@&quot;123&quot;</span>];<br>    [<span class="hljs-meta">car run</span>];<br>    car.price = <span class="hljs-string">@&quot;19999&quot;</span>;    <br>    [<span class="hljs-meta">car test</span>];<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
+<h3 id="oc-调用swift组件库"><a href="#oc-调用swift组件库" class="headerlink" title="oc 调用swift组件库"></a>oc 调用swift组件库</h3><p> 例如 调用CTMediatorswift第三方库   @import CTMediator 即可</p>
+<h3 id="swift-闭包转换成-oc-调用的block"><a href="#swift-闭包转换成-oc-调用的block" class="headerlink" title="swift 闭包转换成 oc 调用的block"></a>swift 闭包转换成 oc 调用的block</h3><p>这与 Swift 如何实现闭包有关。您需要使用@convention(block)来注释闭包是 ObjC 块。使用unsafeBitCast武力投它<br>var block : @convention(block) (NSString!) -&gt; Void = {<br>   (string : NSString!) -&gt; Void in<br>    println(“test”)<br>}<br>ctx.setObject(unsafeBitCast(block, AnyObject.self), forKeyedSubscript: “test”)</p>
 <h4 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h4><p>swift中仍然可以使用选择器#selector定义一个选择器<br>但必须被@objcMembers修饰或者@objc修饰方法</p>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">@objcMembers <span class="hljs-keyword">class</span> Car: NSObject &#123;<br><br>    func test(v1: <span class="hljs-type">Int</span>)  &#123;<br>        print(v1)<br>    &#125;<br>    func test1(v1:<span class="hljs-type">Int</span>,v2: <span class="hljs-type">Int</span>)  &#123;<br>        <br>    &#125;<br>    <br>    func run() &#123;<br>        <span class="hljs-keyword">perform</span>(#selector(test(v1:)))<br>        <span class="hljs-keyword">perform</span>(#selector(test1(v1:v2:)))<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
