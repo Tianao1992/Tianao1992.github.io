@@ -131,6 +131,17 @@ void testSwift() {
 }
 
 ```
+### oc 调用swift组件库
+ 例如 调用CTMediatorswift第三方库   @import CTMediator 即可
+
+### swift 闭包转换成 oc 调用的block 
+这与 Swift 如何实现闭包有关。您需要使用@convention(block)来注释闭包是 ObjC 块。使用unsafeBitCast武力投它
+var block : @convention(block) (NSString!) -> Void = {
+   (string : NSString!) -> Void in 
+    println("test")
+}
+ctx.setObject(unsafeBitCast(block, AnyObject.self), forKeyedSubscript: "test")
+
 
 #### 选择器
 swift中仍然可以使用选择器#selector定义一个选择器
