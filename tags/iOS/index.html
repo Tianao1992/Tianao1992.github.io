@@ -171,9 +171,18 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 10 篇文章</p>
+  <p class="h4">共计 11 篇文章</p>
   <hr>
   
+  
+    
+      
+      <p class="h5">2022</p>
+    
+    <a href="/2022/01/11/iOS-ipaLoseWeight/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">iOS应用瘦身</span>
+      <time style="float: right;">01-11</time>
+    </a>
   
     
       
@@ -235,14 +244,20 @@
       <time style="float: right;">10-11</time>
     </a>
   
-    
-    <a href="/2019/10/09/iOS-isa/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">iOS  非指针型ISA(NONPOINTER_ISA)</span>
-      <time style="float: right;">10-09</time>
-    </a>
-  
 </div>
 
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/tags/iOS/page/2/">2</a><a class="extend next" rel="next" href="/tags/iOS/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
@@ -362,38 +377,6 @@
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    (function () {
-      var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
-    })()
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
-
-
-</body>
-</html>
-ipt>
     (function () {
       var path = "/local-search.xml";
       var inputArea = document.querySelector("#local-search-input");

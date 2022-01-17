@@ -179,6 +179,76 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2020/12/04/swift-init/" target="_self">
+          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="初始化器">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/04/swift-init/">初始化器</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/04/swift-init/">
+          
+          
+            
+          
+          初始化器介绍类、结构体、枚举都可以定义初始化器
+类的初始化器有两种: 指定初始化器、便捷初始化器
+
+每个类至少有一个指定初始化器，指定初始化器是类主要的初始器
+
+默认初始化器是类的指定初始化器
+
+类偏向于少量初始化器，一个类通常只要一个指定初始器
+
+
+初始化器互相调用规则
+
+指定初始化器必须从它的直系父类调用指定初始化器
+
+便捷初始化器必须从它相同类里调用另一个初始化器
+
+便捷初始化器最终必须调用
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-04 08:25" pubdate>
+              2020-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Swift/">Swift</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ios/">ios</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2020/12/03/swift-inheritance/" target="_self">
           <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="继承">
         </a>
@@ -710,71 +780,6 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
             <time datetime="2020-12-02 14:03" pubdate>
-              2020-12-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Swift/">Swift</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/ios/">ios</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/12/02/swift-Basicgrammar/" target="_self">
-          <img src="/img/ios/swift/swift.png" srcset="/img/loading.gif" alt="基础语法">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/12/02/swift-Basicgrammar/">基础语法</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/12/02/swift-Basicgrammar/">
-          
-          
-            
-          
-          常量
-只能赋值一次
-
-它的值不要求在编译时期决定，但在使用之前只能赋值一次
-
-常量、变量在未初始化之前都不能使用
-
-
-12345let age = 10let age2: Int = 20age2 = 2 //Cannot assign to value: &#x27;age2&#x27; is a &#x27;let&#x27; constant
-
-标识符
-标识符（常量名、变量名、函数名）几乎可
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-02 13:34" pubdate>
               2020-12-02
             </time>
           </div>
