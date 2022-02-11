@@ -19,22 +19,22 @@
   <meta name="keywords" content="">
   <title>Runloop - tablog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/hint.css/2.7.0/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.4.0/styles/github-gist.min.css" />
     
   
 
   
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
   
 
 
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      618 字
+      624 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      7
        分钟
     </span>
   
@@ -227,7 +227,7 @@
             <h1 style="display: none">Runloop</h1>
             
             <div class="markdown-body">
-              <h3 id="什么是Runloop"><a href="#什么是Runloop" class="headerlink" title="什么是Runloop"></a>什么是Runloop</h3><p>从语义角度 runloop 是通过内部事件循环来处理事件/消息的一个对象</p>
+              <h3 id="什么是Runloop"><a href="#什么是Runloop" class="headerlink" title="什么是Runloop"></a>什么是Runloop</h3><p>从语义角度 runloop 是通过内部事件循环来处理事件&#x2F;消息的一个对象</p>
 <ul>
 <li><p>没有消息需要处理时，休眠避免占用资源 （用户态 到 核心态）</p>
 </li>
@@ -242,7 +242,7 @@
 </li>
 <li><p>CFRunloopMode</p>
 </li>
-<li><p>source/Timer/observer</p>
+<li><p>source&#x2F;Timer&#x2F;observer</p>
 </li>
 </ul>
 <h3 id="CFRunloop-结构"><a href="#CFRunloop-结构" class="headerlink" title="CFRunloop 结构"></a>CFRunloop 结构</h3><p><img src="/img/ios/runloop/cfrunloop.png" srcset="/img/loading.gif"></p>
@@ -256,7 +256,7 @@
 </li>
 <li><p>UIInitializationRunLoopMode  App启动时第一个模式, runloop会处理启动事件,这个模式只运行一次(苹果不开放)</p>
 </li>
-<li><p> GSEventReceiveRunLoopMode系统事件的内部模式(苹果不开放)</p>
+<li><p>GSEventReceiveRunLoopMode系统事件的内部模式(苹果不开放)</p>
 </li>
 </ul>
 <h4 id="CFRunloopSource-分为哪些"><a href="#CFRunloopSource-分为哪些" class="headerlink" title="CFRunloopSource 分为哪些"></a>CFRunloopSource 分为哪些</h4><ul>
@@ -283,14 +283,14 @@
 <h4 id="commmode的特殊性"><a href="#commmode的特殊性" class="headerlink" title="commmode的特殊性"></a>commmode的特殊性</h4><ul>
 <li><p>commmode不是实际存在的一种mode</p>
 </li>
-<li><p>是同步 source/Timer/observe 到多个mode 中的一种技术方案</p>
+<li><p>是同步 source&#x2F;Timer&#x2F;observe 到多个mode 中的一种技术方案</p>
 </li>
 </ul>
 <h3 id="Runloop-机制"><a href="#Runloop-机制" class="headerlink" title="Runloop 机制"></a>Runloop 机制</h3><p><img src="/img/ios/runloop/runloopjizhi.png" srcset="/img/loading.gif"></p>
 <h3 id="怎样实现一个常驻线程"><a href="#怎样实现一个常驻线程" class="headerlink" title="怎样实现一个常驻线程"></a>怎样实现一个常驻线程</h3><ul>
 <li><p>在当前线程中开启一个runloop </p>
 </li>
-<li><p>向该runloop中添加一个Port/Source 等维持Runloop 的事件循环</p>
+<li><p>向该runloop中添加一个Port&#x2F;Source 等维持Runloop 的事件循环</p>
 </li>
 <li><p>启动该runloop</p>
 </li>
@@ -298,7 +298,7 @@
 <h3 id="怎样保证子线程数据回来更新UI的时候不打断用户滑动操作-？"><a href="#怎样保证子线程数据回来更新UI的时候不打断用户滑动操作-？" class="headerlink" title="怎样保证子线程数据回来更新UI的时候不打断用户滑动操作?？"></a>怎样保证子线程数据回来更新UI的时候不打断用户滑动操作?？</h3><ul>
 <li><p>用户滑动当前runloop 运行在UItrackingrunloopmode下</p>
 </li>
-<li><p> 我们一般在子线程中进行网络请求，所以可以在子线程给主线程数据进行UI更新的逻辑封装起来提交到主线       线程NSDefaultRunloopmode下 具体方法 [self performSelectorOnmainThred@selector(reloadData)       withobjc:nil waitUniteDone:No modes:NSDefaultRunloopmode]</p>
+<li><p>我们一般在子线程中进行网络请求，所以可以在子线程给主线程数据进行UI更新的逻辑封装起来提交到主线       线程NSDefaultRunloopmode下 具体方法 [self performSelectorOnmainThred@selector(reloadData)       withobjc:nil waitUniteDone:No modes:NSDefaultRunloopmode]</p>
 </li>
 <li><p>这样抛回来的任务，当用户滑动处于UITrackingRunLoopMode 下就不会执行，当滑动停止，当前mode切换NSDefaultRunloopmode再处理子线线程抛上来的任务</p>
 </li>
@@ -420,8 +420,8 @@
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -435,8 +435,8 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
@@ -454,26 +454,26 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.18.0/tocbot.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.1/anchor.min.js" ></script>
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js" ></script>
 
 
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;

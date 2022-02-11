@@ -19,22 +19,22 @@
   <meta name="keywords" content="">
   <title>流程控制 - tablog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/hint.css/2.7.0/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.4.0/styles/github-gist.min.css" />
     
   
 
   
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
   
 
 
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      447 字
+      450 字
     </span>
   
 
@@ -238,11 +238,11 @@
 <li><p>swift去掉了 自减– 和 自增++</p>
 </li>
 </ul>
-<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><h4 id="区间运算符"><a href="#区间运算符" class="headerlink" title="区间运算符"></a>区间运算符</h4><p>闭区间运算符 a…b   a&lt;= 取值 &lt;= b</p>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><h4 id="区间运算符"><a href="#区间运算符" class="headerlink" title="区间运算符"></a>区间运算符</h4><p>闭区间运算符 a…b   a&lt;&#x3D; 取值 &lt;&#x3D; b</p>
 <figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs golo"><span class="hljs-keyword">let</span> names = [<span class="hljs-string">&quot;zhangsan&quot;</span>,<span class="hljs-string">&quot;lisi&quot;</span>,<span class="hljs-string">&quot;wangwu&quot;</span>,<span class="hljs-string">&quot;zhaoliu&quot;</span>]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0.</span>.<span class="hljs-number">.3</span> &#123;<br>  <span class="hljs-keyword">print</span>(names[i])<br>&#125;<br><br>// <span class="hljs-keyword">for</span> 默认是<span class="hljs-keyword">let</span> 如果要使用加<span class="hljs-keyword">var</span> <br><br></code></pre></td></tr></table></figure>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-keyword">for</span> <span class="hljs-selector-tag">var</span> <span class="hljs-selector-tag">i</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>...<span class="hljs-number">3</span> &#123;<br>    <span class="hljs-selector-tag">i</span> += <span class="hljs-number">1</span><br>    print(i)<span class="hljs-comment">// 1234</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>半开区间运算符   a..&lt;b   a&lt;= 取值 &lt; b</p>
+<p>半开区间运算符   a..&lt;b   a&lt;&#x3D; 取值 &lt; b</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">let</span> names = [<span class="hljs-string">&quot;zhangsan&quot;</span>,<span class="hljs-string">&quot;lisi&quot;</span>,<span class="hljs-string">&quot;wangwu&quot;</span>,<span class="hljs-string">&quot;zhaoliu&quot;</span>]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> 0..&lt;3 &#123;<br>  <span class="hljs-built_in">print</span>(names[i])<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
 <p>单侧区间： 让区间方向尽可能的远</p>
@@ -374,8 +374,8 @@
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -389,8 +389,8 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
@@ -408,26 +408,26 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.18.0/tocbot.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.1/anchor.min.js" ></script>
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js" ></script>
 
 
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;

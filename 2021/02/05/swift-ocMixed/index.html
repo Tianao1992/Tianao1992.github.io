@@ -19,22 +19,22 @@
   <meta name="keywords" content="">
   <title>oc与swift混编 - tablog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/hint.css/2.7.0/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.4.0/styles/github-gist.min.css" />
     
   
 
   
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
   
 
 
@@ -250,14 +250,12 @@
 </li>
 <li><p>@objc修饰需要暴露给oc成员</p>
 </li>
-<li><p>@objcMembers默认全部暴露给oc<br>//@objc 单个暴露给oc 全员暴露给 oc</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-meta">@objcMembers</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span>: <span class="hljs-title">NSObject</span> </span>&#123;<br>    <span class="hljs-keyword">var</span> price: <span class="hljs-type">String</span><br>    <span class="hljs-keyword">var</span> bind: <span class="hljs-type">String</span><br>    <span class="hljs-keyword">init</span>(price: <span class="hljs-type">String</span> ,bind: <span class="hljs-type">String</span>) &#123;<br>        <span class="hljs-keyword">self</span>.price = price<br>        <span class="hljs-keyword">self</span>.bind = bind<br><br>    &#125;<br>    <span class="hljs-comment">//希望走runtime 加关键字 dynamic</span><br>     <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> &#123;<br>       <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;car run&quot;</span>)<br>    &#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Car run&quot;</span>)<br>    &#125;<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-</li>
+<li><p>@objcMembers默认全部暴露给oc<br>&#x2F;&#x2F;@objc 单个暴露给oc 全员暴露给 oc</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-meta">@objcMembers</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span>: <span class="hljs-title">NSObject</span> </span>&#123;<br>    <span class="hljs-keyword">var</span> price: <span class="hljs-type">String</span><br>    <span class="hljs-keyword">var</span> bind: <span class="hljs-type">String</span><br>    <span class="hljs-keyword">init</span>(price: <span class="hljs-type">String</span> ,bind: <span class="hljs-type">String</span>) &#123;<br>        <span class="hljs-keyword">self</span>.price = price<br>        <span class="hljs-keyword">self</span>.bind = bind<br><br>    &#125;<br>    <span class="hljs-comment">//希望走runtime 加关键字 dynamic</span><br>     <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> &#123;<br>       <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;car run&quot;</span>)<br>    &#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Car run&quot;</span>)<br>    &#125;<br><br>&#125;<br><br></code></pre></td></tr></table></figure></li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testSwift</span>(<span class="hljs-params"></span>)</span> &#123;<br>    Car *car = [[Car alloc] initWithPrice:<span class="hljs-string">@&quot;2200&quot;</span> bind:<span class="hljs-string">@&quot;123&quot;</span>];<br>    [<span class="hljs-meta">car run</span>];<br>    car.price = <span class="hljs-string">@&quot;19999&quot;</span>;    <br>    [<span class="hljs-meta">car test</span>];<br>&#125;<br><br></code></pre></td></tr></table></figure>
 <h3 id="oc-调用swift组件库"><a href="#oc-调用swift组件库" class="headerlink" title="oc 调用swift组件库"></a>oc 调用swift组件库</h3><p> 例如 调用CTMediatorswift第三方库   @import CTMediator 即可</p>
-<h3 id="swift-闭包转换成-oc-调用的block"><a href="#swift-闭包转换成-oc-调用的block" class="headerlink" title="swift 闭包转换成 oc 调用的block"></a>swift 闭包转换成 oc 调用的block</h3><p>这与 Swift 如何实现闭包有关。您需要使用@convention(block)来注释闭包是 ObjC 块。使用unsafeBitCast武力投它<br>var block : @convention(block) (NSString!) -&gt; Void = {<br>   (string : NSString!) -&gt; Void in<br>    println(“test”)<br>}<br>ctx.setObject(unsafeBitCast(block, AnyObject.self), forKeyedSubscript: “test”)</p>
+<h3 id="swift-闭包转换成-oc-调用的block"><a href="#swift-闭包转换成-oc-调用的block" class="headerlink" title="swift 闭包转换成 oc 调用的block"></a>swift 闭包转换成 oc 调用的block</h3><p>这与 Swift 如何实现闭包有关。您需要使用@convention(block)来注释闭包是 ObjC 块。使用unsafeBitCast武力投它<br>var block : @convention(block) (NSString!) -&gt; Void &#x3D; {<br>   (string : NSString!) -&gt; Void in<br>    println(“test”)<br>}<br>ctx.setObject(unsafeBitCast(block, AnyObject.self), forKeyedSubscript: “test”)</p>
 <h4 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h4><p>swift中仍然可以使用选择器#selector定义一个选择器<br>但必须被@objcMembers修饰或者@objc修饰方法</p>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">@objcMembers <span class="hljs-keyword">class</span> Car: NSObject &#123;<br><br>    func test(v1: <span class="hljs-type">Int</span>)  &#123;<br>        print(v1)<br>    &#125;<br>    func test1(v1:<span class="hljs-type">Int</span>,v2: <span class="hljs-type">Int</span>)  &#123;<br>        <br>    &#125;<br>    <br>    func run() &#123;<br>        <span class="hljs-keyword">perform</span>(#selector(test(v1:)))<br>        <span class="hljs-keyword">perform</span>(#selector(test1(v1:v2:)))<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -283,14 +281,12 @@
 <li><p>默认情况 extension不可以增加存储属性</p>
 </li>
 <li><p>借助关联对象可以实现extension增加存储属性</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;<br><br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Person</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> <span class="hljs-type">AGE_KEY</span>: <span class="hljs-type">Bool</span> = <span class="hljs-literal">false</span><br>    <span class="hljs-keyword">var</span> age: <span class="hljs-type">Int</span> &#123;<br>        <span class="hljs-keyword">get</span> &#123;<br>            objc_getAssociatedObject(<span class="hljs-keyword">self</span>, &amp;<span class="hljs-type">Person</span>.<span class="hljs-type">AGE_KEY</span>) <span class="hljs-keyword">as</span>! <span class="hljs-type">Int</span><br>        &#125;<br>        <span class="hljs-keyword">set</span> &#123;<br>            objc_setAssociatedObject(<span class="hljs-keyword">self</span>, &amp;<span class="hljs-type">Person</span>.<span class="hljs-type">AGE_KEY</span>, newValue, .<span class="hljs-type">OBJC_ASSOCIATION_ASSIGN</span>)<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">var</span> p = <span class="hljs-type">Person</span>()<br>p.age = <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
-
-</li>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;<br><br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Person</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> <span class="hljs-type">AGE_KEY</span>: <span class="hljs-type">Bool</span> = <span class="hljs-literal">false</span><br>    <span class="hljs-keyword">var</span> age: <span class="hljs-type">Int</span> &#123;<br>        <span class="hljs-keyword">get</span> &#123;<br>            objc_getAssociatedObject(<span class="hljs-keyword">self</span>, &amp;<span class="hljs-type">Person</span>.<span class="hljs-type">AGE_KEY</span>) <span class="hljs-keyword">as</span>! <span class="hljs-type">Int</span><br>        &#125;<br>        <span class="hljs-keyword">set</span> &#123;<br>            objc_setAssociatedObject(<span class="hljs-keyword">self</span>, &amp;<span class="hljs-type">Person</span>.<span class="hljs-type">AGE_KEY</span>, newValue, .<span class="hljs-type">OBJC_ASSOCIATION_ASSIGN</span>)<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">var</span> p = <span class="hljs-type">Person</span>()<br>p.age = <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">public</span> <span class="hljs-keyword">typealias</span> <span class="hljs-type">Task</span> = () -&gt; <span class="hljs-type">Void</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Async</span> </span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">async</span><span class="hljs-params">(<span class="hljs-keyword">_</span> task: @escaping Task)</span></span>&#123;<br>        _async(task)<br>    &#125;<br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">async</span><span class="hljs-params">(<span class="hljs-keyword">_</span> task: @escaping Task,  <span class="hljs-keyword">_</span> mainTask: @escaping Task)</span></span> &#123;<br>        _async(task, mainTask)<br>    &#125;<br>    <br>    <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span>  <span class="hljs-title">_async</span><span class="hljs-params">(<span class="hljs-keyword">_</span> task:  @escaping Task, <span class="hljs-keyword">_</span> mainTask: Task? = <span class="hljs-literal">nil</span>)</span></span> &#123;<br>        <span class="hljs-keyword">let</span> item = <span class="hljs-type">DispatchWorkItem</span>(block: task)<br>        <span class="hljs-type">DispatchQueue</span>.global().async(execute: item)<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> main = mainTask &#123;<br>            item.notify(queue: <span class="hljs-type">DispatchQueue</span>.main, execute: main)<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">asyncDelay</span><span class="hljs-params">(<span class="hljs-keyword">_</span> second: Double, <span class="hljs-keyword">_</span> task: @escaping  Task, <span class="hljs-keyword">_</span> mainTask: @escaping Task)</span></span> -&gt; <span class="hljs-type">DispatchWorkItem</span> &#123;<br>        _asyncDelay(second, task, mainTask)<br>    &#125;<br>    <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span>  <span class="hljs-title">_asyncDelay</span><span class="hljs-params">(<span class="hljs-keyword">_</span> second: Double, <span class="hljs-keyword">_</span> task: @escaping Task,  <span class="hljs-keyword">_</span> mainTask: Task? = <span class="hljs-literal">nil</span>)</span></span> -&gt; <span class="hljs-type">DispatchWorkItem</span> &#123;<br>        <span class="hljs-keyword">let</span> itme = <span class="hljs-type">DispatchWorkItem</span>(block: task)<br>        <br>        <span class="hljs-type">DispatchQueue</span>.global().asyncAfter(deadline: <span class="hljs-type">DispatchTime</span>.now() + second, execute: itme)<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> main = mainTask &#123;<br>            itme.notify(queue: <span class="hljs-type">DispatchQueue</span>.main, execute: main)<br>        &#125;<br>        <span class="hljs-keyword">return</span> itme<br>    &#125;<br>    <br>    <br>    <br>&#125;<br><br></code></pre></td></tr></table></figure>
 
 
-<p>//加锁</p>
+<p>&#x2F;&#x2F;加锁</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs swift">   <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> data = [<span class="hljs-type">String</span>: <span class="hljs-type">Any</span>]()<br>    <br>    <span class="hljs-comment">//信号量加锁</span><br><span class="hljs-comment">//    private static var lock = DispatchSemaphore(value: 1)</span><br>    <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> lock = <span class="hljs-type">NSRecursiveLock</span>()<br>    <br>    <br>    <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">set</span> <span class="hljs-params">(<span class="hljs-keyword">_</span> key: String, value: <span class="hljs-keyword">Any</span>)</span></span> &#123;<br><span class="hljs-comment">//        lock.wait()</span><br><span class="hljs-comment">//        defer &#123;</span><br><span class="hljs-comment">//            lock.signal()</span><br><span class="hljs-comment">//        &#125;</span><br><span class="hljs-comment">//        data[key] = value</span><br>        <br>        lock.lock()<br>        <span class="hljs-keyword">defer</span> &#123;<br>            lock.unlock()<br>        &#125;<br>        data[key] = value<br>       <br>    &#125;<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
@@ -408,8 +404,8 @@
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -423,8 +419,8 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
@@ -442,26 +438,26 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.18.0/tocbot.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.1/anchor.min.js" ></script>
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js" ></script>
 
 
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;

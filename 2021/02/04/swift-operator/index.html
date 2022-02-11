@@ -19,22 +19,22 @@
   <meta name="keywords" content="">
   <title>高级运算符 - tablog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/hint.css/2.7.0/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.4.0/styles/github-gist.min.css" />
     
   
 
   
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
   
 
 
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      311 字
+      313 字
     </span>
   
 
@@ -237,7 +237,7 @@
 <h3 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h3><p>枚举、类、结构体、可以为已有的运算符提供自定义实现，这个操作叫运算符重载</p>
 <figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs gml">struct Point &#123;<br>    <span class="hljs-keyword">var</span> <span class="hljs-symbol">x</span>:Int<br>    <span class="hljs-keyword">var</span> <span class="hljs-symbol">y</span>:Int<br>    init(<span class="hljs-symbol">x</span>: Int , <span class="hljs-symbol">y</span>: Int) &#123;<br>        <span class="hljs-literal">self</span>.<span class="hljs-symbol">x</span> = <span class="hljs-symbol">x</span><br>        <span class="hljs-literal">self</span>.<span class="hljs-symbol">y</span> = <span class="hljs-symbol">y</span><br>    &#125;<br>    <br>    <span class="hljs-comment">//类方法</span><br>   static func + (p1: Point, p2: Point) -&gt; Point &#123;<br>        <br>        <span class="hljs-keyword">return</span> Point(<span class="hljs-symbol">x</span>: p1.<span class="hljs-symbol">x</span> + p2.<span class="hljs-symbol">x</span>, <span class="hljs-symbol">y</span>: p1.<span class="hljs-symbol">y</span> + p2.<span class="hljs-symbol">y</span>)<br>    &#125;<br>    <br>   <span class="hljs-comment">// 中缀运算符</span><br>    static func - (p1: Point, p2: Point) -&gt; Point &#123;<br>    <br>      <span class="hljs-keyword">return</span> Point(<span class="hljs-symbol">x</span>: p1.<span class="hljs-symbol">x</span> -  p2.<span class="hljs-symbol">x</span>, <span class="hljs-symbol">y</span>: p1.<span class="hljs-symbol">y</span> - p2.<span class="hljs-symbol">y</span>)<br>    &#125;<br>&#125;<br><span class="hljs-keyword">var</span> p1 = Point(<span class="hljs-symbol">x</span>: <span class="hljs-number">10</span>, <span class="hljs-symbol">y</span>: <span class="hljs-number">10</span>)<br><span class="hljs-keyword">var</span> p2 = Point(<span class="hljs-symbol">x</span>: <span class="hljs-number">5</span>, <span class="hljs-symbol">y</span>: <span class="hljs-number">5</span>)<br><br>let p3  = p1 + p2<br></code></pre></td></tr></table></figure>
 
-<h3 id="Equatable"><a href="#Equatable" class="headerlink" title="Equatable"></a>Equatable</h3><p>判断两个实例是否相等，一般遵守Equatable协议，重载 == 运算符</p>
+<h3 id="Equatable"><a href="#Equatable" class="headerlink" title="Equatable"></a>Equatable</h3><p>判断两个实例是否相等，一般遵守Equatable协议，重载 &#x3D;&#x3D; 运算符</p>
 <p>引用类型比较存储地址是否相同</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> : <span class="hljs-title">Equatable</span> </span>&#123;<br>   <br>    <br>    <span class="hljs-keyword">var</span> age = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">init</span>(age: <span class="hljs-type">Int</span>) &#123;<br>        <span class="hljs-keyword">self</span>.age = age<br>    &#125;<br>    <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> == <span class="hljs-params">(lhs: Person, rhs: Person)</span></span> -&gt; <span class="hljs-type">Bool</span> &#123;<br>        lhs.age == rhs.age<br>    &#125;<br>    <br>&#125;<br><br><span class="hljs-keyword">var</span> per1 = <span class="hljs-type">Person</span>(age: <span class="hljs-number">20</span>)<br><br><span class="hljs-keyword">var</span> per2 = <span class="hljs-type">Person</span>(age: <span class="hljs-number">20</span>)<br><br>per1 == per2<br></code></pre></td></tr></table></figure>
 
@@ -358,8 +358,8 @@
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -373,8 +373,8 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
@@ -392,26 +392,26 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.18.0/tocbot.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.1/anchor.min.js" ></script>
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js" ></script>
 
 
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;

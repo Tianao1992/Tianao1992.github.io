@@ -19,22 +19,22 @@
   <meta name="keywords" content="">
   <title>iOS_UI视图汇总 - tablog</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/hint.css/2.7.0/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.4.0/styles/github-gist.min.css" />
     
   
 
   
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
   
 
 
@@ -235,16 +235,16 @@
 <p>UIView和CAlayer从系统设计上符合 单一事件原则</p>
 <hr>
 <h3 id="系统UI事件传递及视图响应"><a href="#系统UI事件传递及视图响应" class="headerlink" title="系统UI事件传递及视图响应"></a>系统UI事件传递及视图响应</h3><h4 id="事件传递"><a href="#事件传递" class="headerlink" title="事件传递"></a>事件传递</h4><p>当一个用户事件产生的时候，UIKit 会创建一个事件对象来描述这个用户事件。然后它会将该事件对象放进UIApplication对象所维护的事件队列中。对于触摸事件而言，产生的事件对象便是一个包含UIEvent的集合(NSSet)对象，一个事件会朝着特定的路径进行传递直到遇到一个可以处理它的对象为止</p>
-<p><strong><em>事件传递的两个重要方法</em></strong></p>
+<p><em><strong>事件传递的两个重要方法</strong></em></p>
 <ul>
 <li><p>-(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event</p>
 </li>
 <li><p>-（BOOL）pointInside:(CGPoint)point withEvent:(UIEvent *)event</p>
 </li>
 </ul>
-<p><strong><em>事件传递流程图</em></strong><br><img src="/img/ios/UI/hitTest.png" srcset="/img/loading.gif"></p>
+<p><em><strong>事件传递流程图</strong></em><br><img src="/img/ios/UI/hitTest.png" srcset="/img/loading.gif"></p>
 <p>倒序遍历：最后添加的UIView最优先被遍历<br>hitTest如果有值，返回当前视图，结束事件传递,如果没有UIWindow就作为一个响应的视图</p>
-<p><strong><em>hitTest:WithEvent系统是实现如图</em></strong><br><img src="/img/ios/UI/hitTestEvent.png" srcset="/img/loading.gif"></p>
+<p><em><strong>hitTest:WithEvent系统是实现如图</strong></em><br><img src="/img/ios/UI/hitTestEvent.png" srcset="/img/loading.gif"></p>
 <ol>
 <li><p>优先判读当前视图的：hidden alpha  等属性，如果不满足返回nil,也就是说当前视图，不作为响应者，然后在由父视图遍历同级兄弟视图</p>
 </li>
@@ -258,26 +258,26 @@
 <ul>
 <li><p>响应链:由离 户最近的view向系统传递。initial view –&gt; super view –&gt; …..–&gt; view controller –&gt; window –&gt; Application –&gt; AppDelegate</p>
 </li>
-<li><p>Hit-Testing 链:由系统向离户最近的view传递。 UIKit –&gt; active app’s event queue –&gt; window –&gt; root view –&gt;……–&gt;lowest view </p>
+<li><p>Hit-Testing 链:由系统向离户最近的view传递。 UIKit –&gt; active app’s event queue –&gt; window –&gt; root view –&gt;……–&gt;lowest view</p>
 </li>
 </ul>
 <hr>
-<h3 id="图层显示原理"><a href="#图层显示原理" class="headerlink" title="图层显示原理"></a>图层显示原理</h3><p><strong><em>cpu和gpu都做了哪些事情</em></strong></p>
+<h3 id="图层显示原理"><a href="#图层显示原理" class="headerlink" title="图层显示原理"></a>图层显示原理</h3><p><em><strong>cpu和gpu都做了哪些事情</strong></em></p>
 <p><img src="/img/ios/UI/imagePrinciple.png" srcset="/img/loading.gif"></p>
 <p>cpu 和 gpu 两个是通过总线连接起来，那么我们在cpu中所输出结果往往是一个位图，再经由总线在合适的时机上传给 gpu, gpu 在拿到位图之后，做相应位图图层的渲染包括纹理合成之后再把结果放到帧缓冲区域当中，由视频控制器根据vsync信号在指定时间之前，去提取对应帧缓冲区域当中屏幕显示内容，然后最终显示在手机屏幕上</p>
-<p><strong><em>UI 视图显示在屏幕上的大致过程</em></strong></p>
+<p><em><strong>UI 视图显示在屏幕上的大致过程</strong></em></p>
 <p><img src="/img/ios/UI/iamgePrinciple1.png" srcset="/img/loading.gif"></p>
 <p>首先当我们创建了一个UIview 显示控件后，它的显示部分是由CAlayer 来负责，CAlayer 当中有一个contents 属性，就是我们最终要绘制到屏幕上面的位图，比如说我们创建了一个UIlabel,那么contens里面最终放的结果就是关于hello world的一个文字的位图，然后系统会在合适的时机，回调给我们一个drawRect方法，然后我们可以在此基础之上绘制一些，我们想自定义绘制的内容，绘制好的这个位图，最终经由Core Animation这个框架提交给 gpu 部分的openGL 渲染管线，进行最终位图的渲染和纹理合成，然后会显示我们的屏幕上。</p>
-<p><strong><em>cpu工作</em></strong><br><img src="/img/ios/UI/cpu.png" srcset="/img/loading.gif"></p>
+<p><em><strong>cpu工作</strong></em><br><img src="/img/ios/UI/cpu.png" srcset="/img/loading.gif"></p>
 <ul>
 <li>layout: UI布局 文本的计算  </li>
 <li>display: 绘制  </li>
 <li>prepare: 图片编解码 </li>
 <li>commit: 提交位图</li>
 </ul>
-<p><strong><em>gpu工作</em></strong></p>
+<p><em><strong>gpu工作</strong></em></p>
 <p><img src="/img/ios/UI/gpu.png" srcset="/img/loading.gif"></p>
-<h3 id="UI卡顿、掉帧的原因"><a href="#UI卡顿、掉帧的原因" class="headerlink" title="UI卡顿、掉帧的原因"></a>UI卡顿、掉帧的原因</h3><p><strong><em>如图</em></strong></p>
+<h3 id="UI卡顿、掉帧的原因"><a href="#UI卡顿、掉帧的原因" class="headerlink" title="UI卡顿、掉帧的原因"></a>UI卡顿、掉帧的原因</h3><p><em><strong>如图</strong></em></p>
 <p><img src="/img/ios/UI/uikadun.png" srcset="/img/loading.gif"></p>
 <ul>
 <li>一般说页面滑动的流畅性是60fps , 指的就是每一秒中会有60帧的画面更新，我们在人眼上面看到的就是流畅效果，基于此每隔16.7ms就要产生一帧画面，在这16.7ms内需要 cpu 和 gpu协同完成这一帧的数据.</li>
@@ -420,8 +420,8 @@
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -435,8 +435,8 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
@@ -454,26 +454,26 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.18.0/tocbot.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.1/anchor.min.js" ></script>
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js" ></script>
 
 
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
