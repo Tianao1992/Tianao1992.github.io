@@ -33,6 +33,15 @@ tags:
 
 4. 本地索引库还有一个检索索引文件，当添加第三方库的时候先去检索索引文件查找，再去本地索引库查找，然后再去真正的代码存放地址去下载第三方库
 
+> pod spec create [podspec文件名]   //创建podspec
+> pod lib lint    //podspec本地验证
+> pod spec lint     //podspec远程验证
+> git add .
+> git commit -m xx
+> git push origin master
+> pod repo push [私有索引库]  [podspec文件]    //将podspec文件push到私有索引库
+
+
 ####  远端私有库,本地库,pod库关系
 
 ![](/img/ios/component/podlib.png)

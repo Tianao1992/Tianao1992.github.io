@@ -11,21 +11,21 @@ layout: about
 
 # 个人信息
 - 田傲/男/1992
-- 工作年限：6年
+- 工作年限：7年
 - GitHub：https://github.com/tianao1992
 - 博客：https://tianao1992.github.io/
-- 期望职位：iOS高级程序员
-- 目前状态：离职
+- 期望职位：iOS高级开发工程师
+- 目前状态：在职
 
 ------
 # 技能清单
 
-- 精通Objective-c,熟练掌握swift、vue.js
+- 熟练掌握Objective-c、swift、js等开发语言
+- 熟练使用壳子化(多target)实现不同项目需求。
 - 熟练掌握MVC、MVVM等主流。熟悉代理、单利、责任链、观察者等设计模式
 - 熟练掌握cocoapods组件化、静态库制作
 - 能通过多线程技术GCD,NSOperation,NSThread 解决项目中问题
 - 熟练掌握runtime&runloop。
-- 熟练掌握多target实现不同项目需求。
 - 熟练掌握JavaScriptCore,WKWebView 与h5 交互。
 - 熟练使用SVN、Git等代码管理工具，崇尚Git。
 - 熟练掌握 FMDB、Plist、NSUserdefaults等数据持久化方法。
@@ -35,6 +35,14 @@ layout: about
 
 # 工作经历
 
+## 天狮集团 (2021.3-至今)
+
+负责<实亿趣><starshow><今天买买>移动端开发； 
+负责电商直播项目主播端任务分发与排期；
+负责项目架构分层,功能模块间解耦；
+负责starshow主播端项目代码分支管理pod库版本管理；
+负责功能版本前期技术调研
+
 ## 北京容联云通讯（2017.6-2020.6）
 
 负责<容信><容视><有会>移动端开发；  
@@ -43,7 +51,6 @@ layout: about
 根据项目需求开发IM插件，白板插件，会议插件等；  
 负责编写相关技术接口文档；  
 负责<有会>flutter集成;  
-
 
 ## 北京征晨文化传播有限公司（2015.11-2017.6）
 
@@ -60,13 +67,32 @@ layout: about
 
 ## 郑州文鑫科技有限公司（2014.11—2015.03）
 
-负责<大头娃娃>iOS端架构与研发；  
-负责代码迁移，增添第三方管理工具  
-
+负责<吃啥呀> iOS端开发与版本迭代;
+负责相关功能端技术调研与代码review； 
 
 ------
 
 # 项目列表
+
+## starShow(swift)
+*今天买买电商直播项目主播端应用*
+### 相关技术
+* 基于腾讯TRTC封装上层业务实现开播、美颜、视频连麦互动等功能
+* 应用组件化通信基于CTMediator，Module_Extension模块解耦
+* 直播组件库(swift)与TRTCLiveRoom相关oc文件(xxx-umbrella.h)混编
+* 壳子化工程项目针对不同需求输出不同包，添加scheme配置环境变量
+* 国际化实现，本地语言资源json文件添加Bundle
+***
+## 今天买买(swift)
+*天狮集团国内电商项目应用*
+### 相关技术
+
+* 首页模块针对不同功能活动cms小组件生成维护强业务逻辑
+* 应用瘦身(153M->134M)包含图片资源清理、工程配置、冗余库整理
+* 前端交互通用wkwebview类封装，及中间对象生成避免内存泄漏
+* RealmSwift、bigdata 项目核心数据埋点
+* HandyJSON、Kingfisher、SnapKit 等三方集成
+***
 ## 容视（iOS）
 *实时视频会议的APP，包含会议白板、IM、遥控硬件等功能；*
 ### 相关技术
