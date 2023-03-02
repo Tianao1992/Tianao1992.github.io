@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/favicon.png">
+  <link rel="icon" type="image/png" href="/img/bg/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>iOS_UI视图汇总 - tablog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/hint.css/2.7.0/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>tablog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg/background.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="iOS_UI视图汇总">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-11-10 10:47" pubdate>
+        2019年11月10日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">iOS_UI视图汇总</h1>
+            
+            <div class="markdown-body">
+              <h3 id="汇总：事件传递-amp-响应链、图像显示原理、卡顿-amp-掉帧、绘制原理-amp-异步绘制"><a href="#汇总：事件传递-amp-响应链、图像显示原理、卡顿-amp-掉帧、绘制原理-amp-异步绘制" class="headerlink" title="汇总：事件传递&amp;响应链、图像显示原理、卡顿&amp;掉帧、绘制原理&amp;异步绘制"></a>汇总：事件传递&amp;响应链、图像显示原理、卡顿&amp;掉帧、绘制原理&amp;异步绘制</h3><hr>
+<h3 id="UIView-和-CALayer-关系是怎么样的？"><a href="#UIView-和-CALayer-关系是怎么样的？" class="headerlink" title="UIView 和 CALayer 关系是怎么样的？"></a>UIView 和 CALayer 关系是怎么样的？</h3><ul>
+<li>UIView 为其提供内容，以及负责触摸等事件，参与响应链</li>
+<li>CALayer 负责显示内容contens<br><img src="/img/ios/UI/uiview.png" srcset="/img/loading.gif"></li>
+</ul>
+<p>UIView和CAlayer从系统设计上符合 单一事件原则</p>
+<hr>
+<h3 id="系统UI事件传递及视图响应"><a href="#系统UI事件传递及视图响应" class="headerlink" title="系统UI事件传递及视图响应"></a>系统UI事件传递及视图响应</h3><h4 id="事件传递"><a href="#事件传递" class="headerlink" title="事件传递"></a>事件传递</h4><p>当一个用户事件产生的时候，UIKit 会创建一个事件对象来描述这个用户事件。然后它会将该事件对象放进UIApplication对象所维护的事件队列中。对于触摸事件而言，产生的事件对象便是一个包含UIEvent的集合(NSSet)对象，一个事件会朝着特定的路径进行传递直到遇到一个可以处理它的对象为止</p>
+<p><em><strong>事件传递的两个重要方法</strong></em></p>
+<ul>
+<li><p>-(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event</p>
+</li>
+<li><p>-（BOOL）pointInside:(CGPoint)point withEvent:(UIEvent *)event</p>
+</li>
+</ul>
+<p><em><strong>事件传递流程图</strong></em><br><img src="/img/ios/UI/hitTest.png" srcset="/img/loading.gif"></p>
+<p>倒序遍历：最后添加的UIView最优先被遍历<br>hitTest如果有值，返回当前视图，结束事件传递,如果没有UIWindow就作为一个响应的视图</p>
+<p><em><strong>hitTest:WithEvent系统是实现如图</strong></em><br><img src="/img/ios/UI/hitTestEvent.png" srcset="/img/loading.gif"></p>
+<ol>
+<li><p>优先判读当前视图的：hidden alpha  等属性，如果不满足返回nil,也就是说当前视图，不作为响应者，然后在由父视图遍历同级兄弟视图</p>
+</li>
+<li><p>判读点击的点是否在当前视图，如果不满足返回nil,也就是<br>说当前视图，不作为响应者，然后在由父视图遍历同级兄弟视图</p>
+</li>
+<li><p>以倒序方式遍历当前视图的所有子视图，遍历过程 调用 hittest 方法,如果有对应的响应视图就返回，如果遍历完成之后，没有对应视图，由于 pointinside 在当前视图范围内，返回当前图作为响应视图返回给调用方</p>
+</li>
+</ol>
+<h4 id="响应链"><a href="#响应链" class="headerlink" title="响应链"></a>响应链</h4><p>响应者链条是由响应者对象构成的，它们有一个共同点就是都是继承自UIResponder，UIResponder的程序接口不仅定义了事件处理方式，还有响应者的一些共同行为。UIApplication，UIViewController和UIView都是响应者，这意味着UIView与其所有子类和大多数主要控制器对象都是响应者，符合设计模式中责任链</p>
+<p><img src="/img/ios/UI/responder.png" srcset="/img/loading.gif"></p>
+<ul>
+<li><p>响应链:由离 户最近的view向系统传递。initial view –&gt; super view –&gt; …..–&gt; view controller –&gt; window –&gt; Application –&gt; AppDelegate</p>
+</li>
+<li><p>Hit-Testing 链:由系统向离户最近的view传递。 UIKit –&gt; active app’s event queue –&gt; window –&gt; root view –&gt;……–&gt;lowest view</p>
+</li>
+</ul>
+<hr>
+<h3 id="图层显示原理"><a href="#图层显示原理" class="headerlink" title="图层显示原理"></a>图层显示原理</h3><p><em><strong>cpu和gpu都做了哪些事情</strong></em></p>
+<p><img src="/img/ios/UI/imagePrinciple.png" srcset="/img/loading.gif"></p>
+<p>cpu 和 gpu 两个是通过总线连接起来，那么我们在cpu中所输出结果往往是一个位图，再经由总线在合适的时机上传给 gpu, gpu 在拿到位图之后，做相应位图图层的渲染包括纹理合成之后再把结果放到帧缓冲区域当中，由视频控制器根据vsync信号在指定时间之前，去提取对应帧缓冲区域当中屏幕显示内容，然后最终显示在手机屏幕上</p>
+<p><em><strong>UI 视图显示在屏幕上的大致过程</strong></em></p>
+<p><img src="/img/ios/UI/iamgePrinciple1.png" srcset="/img/loading.gif"></p>
+<p>首先当我们创建了一个UIview 显示控件后，它的显示部分是由CAlayer 来负责，CAlayer 当中有一个contents 属性，就是我们最终要绘制到屏幕上面的位图，比如说我们创建了一个UIlabel,那么contens里面最终放的结果就是关于hello world的一个文字的位图，然后系统会在合适的时机，回调给我们一个drawRect方法，然后我们可以在此基础之上绘制一些，我们想自定义绘制的内容，绘制好的这个位图，最终经由Core Animation这个框架提交给 gpu 部分的openGL 渲染管线，进行最终位图的渲染和纹理合成，然后会显示我们的屏幕上。</p>
+<p><em><strong>cpu工作</strong></em><br><img src="/img/ios/UI/cpu.png" srcset="/img/loading.gif"></p>
+<ul>
+<li>layout: UI布局 文本的计算  </li>
+<li>display: 绘制  </li>
+<li>prepare: 图片编解码 </li>
+<li>commit: 提交位图</li>
+</ul>
+<p><em><strong>gpu工作</strong></em></p>
+<p><img src="/img/ios/UI/gpu.png" srcset="/img/loading.gif"></p>
+<h3 id="UI卡顿、掉帧的原因"><a href="#UI卡顿、掉帧的原因" class="headerlink" title="UI卡顿、掉帧的原因"></a>UI卡顿、掉帧的原因</h3><p><em><strong>如图</strong></em></p>
+<p><img src="/img/ios/UI/uikadun.png" srcset="/img/loading.gif"></p>
+<ul>
+<li>一般说页面滑动的流畅性是60fps , 指的就是每一秒中会有60帧的画面更新，我们在人眼上面看到的就是流畅效果，基于此每隔16.7ms就要产生一帧画面，在这16.7ms内需要 cpu 和 gpu协同完成这一帧的数据.</li>
+<li>比如 cpu 花费一定的时间做 UI布局 文本计算 视图绘制 图片编解码 然后把产生位图提交给 gpu 进行渲染和纹理合成。准好下一帧画面，然后在下一帧的vsync 信号到来时候就可以显示这么样的一个画面。假如说 cpu 占用时间过长，那么留给gpu的时间就非常少，gpu要想完成工作，那么总时间就会超过16.7ms,这样在下一帧的vsync 信号到来时候，我们没有准备好当下的这一帧画面，那就由此产生了掉帧，看到的效果就是滑动的卡顿。</li>
+</ul>
+<p><strong>总结一句话，在规定的16.7ms内在下一帧vsync信号到来之前，并没有gpu和cpu共同完成下一帧画面的合成于是就会导致卡顿、掉帧</strong></p>
+<hr>
+<h3 id="UIView-绘制原理"><a href="#UIView-绘制原理" class="headerlink" title="UIView 绘制原理"></a>UIView 绘制原理</h3><p>当UIview 调用 setNeedDisplay 系统会调用 calayer 的同名方法，之后相当与在当前 layer打上了一个脏标记，然后会在当前runloop将要结束的时候才会调用CALayer display方法，进入当前视图真正绘制流程。</p>
+<p><img src="/img/ios/UI/uiviwedisplay1.png" srcset="/img/loading.gif"></p>
+<h4 id="系统绘制流程"><a href="#系统绘制流程" class="headerlink" title="系统绘制流程"></a>系统绘制流程</h4><p><img src="/img/ios/UI/calayerbacking.png" srcset="/img/loading.gif"></p>
+<h4 id="异步绘制流程"><a href="#异步绘制流程" class="headerlink" title="异步绘制流程"></a>异步绘制流程</h4><blockquote>
+<ul>
+<li>-[layer.delegate displayLayer]</li>
+<li>代理负责生成对应的bitmap</li>
+<li>设置该bitmap作为 layer.contents的属性的值<br>  、<br><img src="/img/ios/UI/displayLayer.png" srcset="/img/loading.gif"></li>
+</ul>
+</blockquote>
+<h3 id="离屏渲染"><a href="#离屏渲染" class="headerlink" title="离屏渲染"></a>离屏渲染</h3><p><strong>离屏渲染：当我们指定UI视图的某些属性标记为在未愈合成之前不能用于当前屏幕显示就会触发离屏渲染，离屏渲染的概念起源于CPU层面，指的是GPU在当前屏幕缓冲区以新开辟一个缓冲区进行渲染操作</strong></p>
+<h4 id="何时会触发？"><a href="#何时会触发？" class="headerlink" title="何时会触发？"></a>何时会触发？</h4><ul>
+<li>圆角（当和 maskToBounds 一起使用时）</li>
+<li>图层蒙版</li>
+<li>阴影</li>
+<li>光栅化</li>
+</ul>
+<h4 id="为何要避免？"><a href="#为何要避免？" class="headerlink" title="为何要避免？"></a>为何要避免？</h4><p><strong>在触发离屏渲染的时候，会增加GPU的工作量，而增加GPU的工作量很有可能会导致GPU和CPU的总耗时超过16.7ms,那么可能会导致UI掉帧和卡顿</strong></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/iOS/">iOS</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/iOS/">iOS</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/11/12/iOS/iOS-Block/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">iOS_Block</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/10/11/iOS/ios-runtime/">
+                        <span class="hidden-mobile">ios_Runtime</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.18.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

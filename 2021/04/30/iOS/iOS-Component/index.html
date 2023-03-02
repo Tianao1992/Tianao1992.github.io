@@ -1,0 +1,500 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/favicon.png">
+  <link rel="icon" type="image/png" href="/img/bg/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>iOS组件化 - tablog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/hint.css/2.7.0/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>tablog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/bg/background.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="iOS组件化">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-30 14:01" pubdate>
+        2021年4月30日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      812 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">iOS组件化</h1>
+            
+            <div class="markdown-body">
+              <h3 id="组件化需求"><a href="#组件化需求" class="headerlink" title="组件化需求"></a>组件化需求</h3><p>随着公司业务的不断发展，项目的功能越来越复杂，各个业务代码耦合越来越多，代码量急剧增加，传统的 MVC 或者 MVVM 架构已经无法高效的管理工程代码，因此需要用一种技术来更好地管理工程，而组件化是一种能够解决代码耦合的技术。项目经过组件化的拆分，不仅可以解决代码耦合的问题，还可以增强代码的复用性，工程的易管理性等。</p>
+<p>组件化是项目架构层面的技术，不是所有项目都适合组件化，组件化一般针对的是大中型的项目，并且是多人开发。如果，项目比较小，开发人员比较少，确实不太适合组件化，因为这时的组件化可能带来的不是便捷，而是增加了开发的工作量。另外，组件化过程也要考虑团队的情况，总之，根据目前项目的情况作出最合适的技术选型</p>
+<h3 id="组件库层级划分"><a href="#组件库层级划分" class="headerlink" title="组件库层级划分"></a>组件库层级划分</h3><p><img src="/img/ios/component/ceji.png" srcset="/img/loading.gif"></p>
+<h3 id="远端索引库制作"><a href="#远端索引库制作" class="headerlink" title="远端索引库制作"></a>远端索引库制作</h3><h4 id="远端索引库作用描述"><a href="#远端索引库作用描述" class="headerlink" title="远端索引库作用描述"></a>远端索引库作用描述</h4><ol>
+<li>第三方代码管理 </li>
+<li>平台创建框架描述spec，包含：框架名称、版本、真正代码存放地址&#x3D;远程地址 </li>
+<li>上传spec到pod的远程索引库</li>
+</ol>
+<h4 id="远端索引库制作-1"><a href="#远端索引库制作-1" class="headerlink" title="远端索引库制作"></a>远端索引库制作</h4><ol>
+<li><p>创建git仓库作为.spec 远端私有库</p>
+</li>
+<li><p>终端 pod repo list 查看本地私有库</p>
+</li>
+<li><p>pod repo add xxx 添加本地私有库</p>
+</li>
+<li><p>本地索引库还有一个检索索引文件，当添加第三方库的时候先去检索索引文件查找，再去本地索引库查找，然后再去真正的代码存放地址去下载第三方库</p>
+</li>
+</ol>
+<blockquote>
+<p>pod spec create [podspec文件名]   &#x2F;&#x2F;创建podspec<br>pod lib lint    &#x2F;&#x2F;podspec本地验证<br>pod spec lint     &#x2F;&#x2F;podspec远程验证<br>git add .<br>git commit -m xx<br>git push origin master<br>pod repo push [私有索引库]  [podspec文件]    &#x2F;&#x2F;将podspec文件push到私有索引库</p>
+</blockquote>
+<h4 id="远端私有库-本地库-pod库关系"><a href="#远端私有库-本地库-pod库关系" class="headerlink" title="远端私有库,本地库,pod库关系"></a>远端私有库,本地库,pod库关系</h4><p><img src="/img/ios/component/podlib.png" srcset="/img/loading.gif"></p>
+<ol>
+<li>创建自己的私有远程索引库</li>
+<li>拉取私有远程索引库到本地</li>
+<li>将自己的私有框架代码上传私有库中</li>
+<li>将私有框架代码中的spec文件上传私有远程索引库</li>
+<li>使用时，在Podfile添加source，下载过程同cocoapods</li>
+</ol>
+<h3 id="pod库制作相关"><a href="#pod库制作相关" class="headerlink" title="pod库制作相关"></a>pod库制作相关</h3><ol>
+<li>pod lib create xxx 编辑podspec文件</li>
+</ol>
+<p><img src="/img/ios/component/podcreate.png" srcset="/img/loading.gif"></p>
+<ol start="2">
+<li>编辑.podspec文件添加对应版本信息及homepage, source </li>
+<li>git add .</li>
+<li>git commit -m “xx”</li>
+<li>git push </li>
+<li>git tag xxx</li>
+<li>git push –tags</li>
+<li>pod lib lint  本地验证</li>
+<li>pod spec lint 远程验证</li>
+<li>推送到私有索引库 pod repo push TAComponentSpec xxx.podspec–allow-warnings</li>
+</ol>
+<h3 id="pod私有库引入工程"><a href="#pod私有库引入工程" class="headerlink" title="pod私有库引入工程"></a>pod私有库引入工程</h3><p>工程podfile文件头部指定 source路径 pod 引入私有库 pod install 引入工程<br><img src="/img/ios/component/source.png" srcset="/img/loading.gif"></p>
+<h3 id="组件库交互-CTMediator"><a href="#组件库交互-CTMediator" class="headerlink" title="组件库交互(CTMediator)"></a>组件库交互(CTMediator)</h3><p><img src="/img/ios/component/ctMediat.png" srcset="/img/loading.gif"></p>
+<p><strong>target</strong></p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">- </span>(UIViewController <span class="hljs-strong">*)Action_nativeFetchDetailViewController:(NSDictionary *</span>)params;<br></code></pre></td></tr></table></figure>
+
+<p><strong>CTMediator分类</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs objectivec"><span class="hljs-comment">// CTMediator+CTMediatorModuleAActions.h</span><br><br>- (<span class="hljs-built_in">UIViewController</span> *)<span class="hljs-built_in">CTMediator_viewControllerForDetail</span>;<br><br><span class="hljs-comment">// CTMediator+CTMediatorModuleAActions.m</span><br><br>- (<span class="hljs-built_in">UIViewController</span> *)<span class="hljs-built_in">CTMediator_viewControllerForDetail</span><br>&#123;<br>	<span class="hljs-keyword">return</span> [<span class="hljs-keyword">self</span> performTarget:kCTMediatorTargetA action:kCTMediatorActionNativFetchDetailViewController params:@&#123;<span class="hljs-string">@&quot;key&quot;</span>:<span class="hljs-string">@&quot;value&quot;</span>&#125; shouldCacheTarget:<span class="hljs-literal">NO</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>调用</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">/ ViewController.h<br><span class="hljs-meta">#import <span class="hljs-meta-string">&quot;CTMediator+CTMediatorModuleAActions.h&quot;</span></span><br><br>[<span class="hljs-keyword">self</span> presentViewController:[[<span class="hljs-built_in">CTMediator</span> sharedInstance] <span class="hljs-built_in">CTMediator_viewControllerForDetail</span>] animated:<span class="hljs-literal">YES</span> completion:<span class="hljs-literal">nil</span>];<br><br></code></pre></td></tr></table></figure>
+<p>从以上代码可以看出，使用者只需要依赖中间件，而中间件又不依赖组件，这是真正意义上的解耦</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/iOS/">iOS</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/iOS/">iOS</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/30/web/webModule/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">前端模块化</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/05/iOS/swift-ocMixed/">
+                        <span class="hidden-mobile">oc与swift混编</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.18.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
