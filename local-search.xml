@@ -4,13 +4,25 @@
   
   
   <entry>
-    <title>TypeScript_1</title>
+    <title>TypeScript_基础语法</title>
     <link href="/2023/03/02/web/TypeScript-1/"/>
     <url>/2023/03/02/web/TypeScript-1/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h2 id="TypeScript-是什么？"><a href="#TypeScript-是什么？" class="headerlink" title="TypeScript 是什么？"></a>TypeScript 是什么？</h2><p>官方介绍：TypeScript 是 JavaScript 的超集，这意味着它可以完成 JavaScript 所做的所有事情而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。  </p><p>TypeScript 提供最新的和不断发展的 JavaScript 特性，包括那些来自 2015 年的 ECMAScript 和未来的提案中的特性，比如异步功能和 Decorators，以帮助建立健壮的组件。下图显示了 TypeScript 与 ES5、ES2015 和 ES2016 之间的关系:<br><img src="/img/h5/ts_img/ts_chaoji.png"></p><h4 id="1-1-TypeScript-与-JavaScript-的区别"><a href="#1-1-TypeScript-与-JavaScript-的区别" class="headerlink" title="1.1 TypeScript 与 JavaScript 的区别"></a>1.1 TypeScript 与 JavaScript 的区别</h4><blockquote><p>如图<br><img src="/img/h5/ts_img/ts_js_qubie.png"></p></blockquote><h4 id="1-2-TypeScript-大致工作流程"><a href="#1-2-TypeScript-大致工作流程" class="headerlink" title="1.2 TypeScript 大致工作流程"></a>1.2 TypeScript 大致工作流程</h4><blockquote><p>如图<br><img src="/img/h5/ts_img/ts_work.jpeg"><br>如图所示ts 包含 a.ts b.ts c.ts三个ts 文件最终会被TypeScript编译器根据配置的编译选项生成 a.js b.js c.js最终通过打包工具对生成的js文件进行打包处理，然后进行部署</p></blockquote><h2 id="TypeScript-基础类型"><a href="#TypeScript-基础类型" class="headerlink" title="TypeScript 基础类型"></a>TypeScript 基础类型</h2><ul><li><ol><li>布尔类型<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs groovy">let <span class="hljs-attr">a :</span><span class="hljs-keyword">boolean</span> = <span class="hljs-literal">true</span> <br><br></code></pre></td></tr></table></figure></li></ol></li><li><ol start="2"><li>number类型<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">let</span> <span class="hljs-variable">b:</span> <span class="hljs-keyword">number</span> = <span class="hljs-number">2</span><br><br></code></pre></td></tr></table></figure></li></ol></li><li><ol start="3"><li>字符串类型<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">let</span> c: <span class="hljs-built_in">string</span> = <span class="hljs-string">&quot;&quot;</span><br><br></code></pre></td></tr></table></figure></li></ol></li></ul>]]></content>
     
     
+    <categories>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>H5</tag>
+      
+    </tags>
     
   </entry>
   
